@@ -1,0 +1,40 @@
+Passos
+
+Definir Layout
+__
+
+Encher banco de imagens que serão utilizadas no projeto:
+
+PEGAR IMAGENS NO INSTAGRAM DA HA,MBURGUERIA REAL - COM FOTOS DO LOCAL
+
+__
+
+
+montar estrutura HMTL com todas as divs
+
+__
+
+Estilizar montando o layout:
+
+__
+
+FAZER TRATAMENTO DE IMAGENS - MONTAR CARROSSEL
+
+__
+
+
+DIVIDIR PARTES DO CODIGO ENTRE A EQUIPA
+
+UM RESPONSAVEL PELO MENU - PESQUISAR E APRENDER A CRIAR MENU VERTICAL COM FUNÇÃO DE EXIBIR E COMPRIMIR
+
+UM RESPONSAVEL PELA TRATATIVA DAS IMAGENS
+
+UM RESPONSAVEL PARA AJUSTAR  E POSICIONAR OS ELEMENTOS EM SEU DEVIDO LUGAR
+
+
+
+
+
+
+
+entregar ado com endereço e print da pagina web de referencia.

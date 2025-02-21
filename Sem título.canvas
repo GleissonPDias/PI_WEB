@@ -1,0 +1,34 @@
+{
+	"nodes":[
+		{"id":"006438620058efde","type":"text","text":"CATEGORIA 1","x":-400,"y":-565,"width":160,"height":50},
+		{"id":"82c3a07e8aa9ebc7","type":"text","text":"CATEGORIA 2","x":-200,"y":-565,"width":160,"height":50},
+		{"id":"931a67f02f2b35ac","type":"text","text":"CATEGORIA 2","x":0,"y":-565,"width":160,"height":50},
+		{"id":"7eb3dbc689888c8e","type":"text","text":"CATEGORIA 2","x":205,"y":-565,"width":160,"height":50},
+		{"id":"54fece04bdb35433","type":"text","text":"inserir banner - montar um carrossel via photoshop\n","x":-275,"y":-765,"width":810,"height":170},
+		{"id":"fd7863a617bf1482","type":"text","text":"CARDAPIO ROTATIVO - FORMATO CARROSSEL\n","x":-275,"y":-449,"width":810,"height":207},
+		{"id":"dfaec1f9e3ae18a1","type":"text","text":"EXIBIR LANCHES AVULSOS E COMBOS","x":285,"y":-220,"width":250,"height":200},
+		{"id":"0458ad8f38d5a441","type":"text","text":"EXIBIR LANCHES AVULSOS E COMBOS","x":0,"y":-220,"width":250,"height":200},
+		{"id":"6cbd70acc49ee725","type":"text","text":"EXIBIR LANCHES AVULSOS E COMBOS","x":-275,"y":-220,"width":250,"height":200},
+		{"id":"2f2e0e700682fa69","type":"text","text":"EXIBIR LANCHES AVULSOS E COMBOS","x":285,"y":80,"width":250,"height":200},
+		{"id":"df0213c34a89099b","type":"text","text":"EXIBIR LANCHES AVULSOS E COMBOS","x":0,"y":80,"width":250,"height":200},
+		{"id":"99bbb4700310c346","type":"text","text":"EXIBIR LANCHES AVULSOS E COMBOS","x":-275,"y":80,"width":250,"height":200},
+		{"id":"35ff16f871df3496","type":"file","file":"PROJETO PI.md","x":-1160,"y":-765,"width":440,"height":1445,"color":"3"},
+		{"id":"0cad9a58997c79e5","type":"text","text":"MENU\n","x":-685,"y":-755,"width":250,"height":1045},
+		{"id":"3c90c027e8b64535","type":"text","text":"CARRINHO","x":-560,"y":-755,"width":120,"height":85},
+		{"id":"0002aacd9f43425c","type":"text","text":"INCLUIR LOGO","x":-687,"y":-825,"width":250,"height":60},
+		{"id":"35be009423cd5614","type":"text","text":"CONTATOS ","x":-682,"y":50,"width":245,"height":240},
+		{"id":"486a0db8fef48b82","type":"text","text":"subtitle","x":-400,"y":-10,"width":160,"height":60},
+		{"id":"b186e63529fabc8c","type":"text","text":"INCLUIR SUBTITULOS De acordo com a categoria.\n","x":-562,"y":360,"width":480,"height":164,"color":"4"},
+		{"id":"1f3aabcf3de5a440","type":"text","text":"\nINCLUIR  DESC ABAIXO DA IMAGEM COM O VALOR EM FONTE MAIOR","x":695,"y":-332,"width":250,"height":200,"color":"4"},
+		{"id":"9739f1904f1dc93a","type":"text","text":" TENTA INCLUIR ANIMAÇÃO AO PASSAR O MOUSE EM CIMA - APARECE BOTAO DE ADIONAR AO CARRINHO\n","x":695,"y":-20,"width":250,"height":200,"color":"4"},
+		{"id":"ab81109139d44103","type":"text","text":"EXIBIR IMAGENS QUE PASSAM SOZINHAS AUTOMATICAMENTE","x":600,"y":-726,"width":520,"height":92,"color":"4"},
+		{"id":"b162420fbfb2918d","type":"text","text":"INCLUIR NAS CATEGORIAS FUNÇAO <A> PARA EXIBIR","x":-480,"y":-960,"width":330,"height":60,"color":"4"}
+	],
+	"edges":[
+		{"id":"8ec422b4f38c36a3","fromNode":"b162420fbfb2918d","fromSide":"bottom","toNode":"006438620058efde","toSide":"top"},
+		{"id":"14d8e389aa6351b9","fromNode":"ab81109139d44103","fromSide":"bottom","toNode":"fd7863a617bf1482","toSide":"right"},
+		{"id":"372b5a3433c82ba0","fromNode":"b186e63529fabc8c","fromSide":"top","toNode":"486a0db8fef48b82","toSide":"bottom"},
+		{"id":"e725cc8026732b31","fromNode":"9739f1904f1dc93a","fromSide":"left","toNode":"dfaec1f9e3ae18a1","toSide":"right"},
+		{"id":"edb7b26d470f6630","fromNode":"1f3aabcf3de5a440","fromSide":"left","toNode":"dfaec1f9e3ae18a1","toSide":"right"}
+	]
+}
