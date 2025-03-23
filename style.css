@@ -481,6 +481,36 @@ p {
 
 
 
+/* CADASTRO */
+
+
+.cadcontainer{
+    display: flex;
+}
+.produtoscadastrados{
+    
+}
+.adicaoprodutos{
+    border: 10px solid rgb(48, 44, 44);
+    background: white;
+
+    width: 50vw;
+    margin-left: 50vw;
+    display: flex;
+    justify-content: center;
+
+
+}
+        
+
+
+
+
+
+
+
+
+
 
 
 
