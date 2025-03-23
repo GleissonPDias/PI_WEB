@@ -9,7 +9,7 @@ try {
 }
 try {
     // Consulta todos os usuários do banco de dados
-    $user_bd = $pdo->query('SELECT * FROM produtos');
+    $user_bd = $pdo->query('SELECT * FROM produto');
 
     // Obtém os dados retornados pela consulta e os armazena em um array associativo
     $dados = $user_bd->fetchAll(PDO::FETCH_ASSOC);
@@ -32,18 +32,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nomeproduto = $_POST['nomeproduto'];
     $preco = $_POST['preco'];
     $descricao = $_POST['descricao'];
-    $estoque = $_POST['estoque']; 
+    $estoque = $_POST['estoque'];
+    $categoria = $_POST['categoria'];
 
         try {
             // Prepara a consulta para inserir um novo usuário no banco de dados
-            $stmt = $pdo->prepare('INSERT INTO produto (nome, preco, descricao, estoque) VALUES (:nomeproduto, :preco, :descricao, :estoque)');
+            $stmt = $pdo->prepare('INSERT INTO produto (nome, preco, descricao, estoque, id_sub_categoria) VALUES (:nomeproduto, :preco, :descricao, :estoque, :categoria)');
 
             // Executa a inserção passando os valores para os placeholders
             $stmt->execute([
                 ':nomeproduto' => $nomeproduto,  
                 ':preco' => $preco,  
                 ':descricao' => $descricao,  
-                ':estoque' => $estoque  
+                ':estoque' => $estoque,
+                ':categoria' => $categoria  
             ]);
 
             echo "Usuário cadastrado com sucesso!"; // Exibe mensagem de sucesso
@@ -56,33 +58,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "As senhas não coincidem!";
     };
 ?>
-
-
-<!-- Exibir itens do banco de dados no site php -->
- 
-<!DOCTYPE html> 
-<html> 
-  <head> 
-    <meta charset="UTF-8"> 
-    <title>Tutorial</title> 
-  </head> 
-  <body> 
-    <table border="1"> 
-      <tr> 
-        <td>Código</td> 
-        <td>Nome</td> 
-        <td>E-mail</td> 
-        <td>Data de Cadastro</td> 
-        <td>Ação</td> 
-      </tr> 
-      <?php foreach ($dados as $usuario) { ?> 
-      <tr> 
-        <td><?php echo $usuario['id']; ?></td> <!-- Supondo que 'id' seja o código do usuário -->
-        <td><?php echo $usuario['username']; ?></td>
-        <td><?php echo $usuario['email']; ?></td> 
-        <td><!-- Aqui você pode adicionar ações como editar ou excluir --></td>
-      </tr> 
-      <?php } ?> 
-    </table> 
-  </body> 
-</html>
