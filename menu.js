@@ -46,17 +46,3 @@ function nextImage() {
 // formulario
 
 
-function adicionarOpcao() {
-    var novoValor = document.getElementById("novaOpcao").value;
-    if (novoValor !== "") {
-        // Adicionar nova opção à lista (pode ser armazenado no banco)
-        var select = document.getElementById("opcoesSelect");
-        var novaOpcao = document.createElement("option");
-        novaOpcao.value = novoValor;
-        novaOpcao.text = novoValor;
-        select.appendChild(novaOpcao);
-
-        // Limpar o campo de entrada
-        document.getElementById("novaOpcao").value = "";
-    }
-}

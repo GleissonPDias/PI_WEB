@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário com Opções</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="/PI/ajax.js" defer></script>
+</head>
+
+<body>
+    <h2>Cadastro de Produtos</h2>
+
+    <div class="cadcontainer"></div>
+
+    <div class="produtoscadastrados">
+
+
+    </div>
+
+    <div class="adicaoprodutos">
+        <form>
+
+            <label for="nomeproduto">Nome:</label>
+            <input type="text" id="nomeproduto" name="nomeproduto" placeholder="Nome do produto">
+            <br>
+
+            <label for="categoria">Categoria</label>
+            <select id="categoria" name="categoria">
+                <option value="Lanche">Lanche</option>
+                <option value="Bebida">Bebida</option>
+                <option value="Gelado">Gelado</option>
+                <option value="d">Option D</option>
+                <option value="e">Option E</option>
+            </select>
+
+            <label for="categoria-adicionar">Adicionar</label>
+            <input type="text" id="categoria-adicionar" name="categoria-adicionar" placeholder="Nova categoria">
+            <button type="button" onclick="adicionarcategoria()">Adicionar nova categoria</button>
+            <br>
+
+            <label for="subcategoria">Sub Categoria</label>
+            <select id="subcategoria" name="subcategoria">
+                <option value="a">Option A</option>
+                <option value="b">Option B</option>
+                <option value="c">Option C</option>
+                <option value="d">Option D</option>
+                <option value="e">Option E</option>
+            </select>
+
+            <label for="subcategoria-adicionar">Adicionar</label>
+            <input type="text" id="subcategoria-adicionar" name="subcategoria-adicionar"
+                placeholder="Nova subcategoria">
+            <button type="button" onclick="adicionarOpcao()">Adicionar nova sub categoria</button>
+            <br>
+
+            <label for="preco">Preço:</label>
+            <input type="number" id="preco" name="preco" placeholder="Preço do produto" min="0" step="0.01">
+            <br>
+
+            <label for="descricao">Descrição:</label>
+            <textarea id="descricao" name="descricao" rows="4" cols="50"
+                placeholder="Escreva a descrição aqui..."></textarea><br><br>
+
+            <label for="estoque">Estoque:</label>
+            <input type="number" id="estoque" name="estoque" placeholder="Quantidade em estoque" min="0">
+            <br>
+
+            <button type="button" onclick="addproduto()">Adicionar novo produto</button>
+            <button type="reset">Limpar</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

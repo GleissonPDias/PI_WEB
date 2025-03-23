@@ -1,60 +1,60 @@
 <?php
+
+header('Content-Type: application/json');
+
+// Verificar se a requisição é POST
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    echo json_encode([
+        'success' => false,
+        'message' => 'Método de requisição inválido. Utilize POST.'
+    ]);
+    exit; // Encerra a execução do script
+}
+
+// Conectar ao banco de dados SQLite
 try {
-    // Conectar ao banco de dados SQLite
-    $pdo = new PDO('sqlite:bancodedados.db'); // Abre conexão com o arquivo demo.db
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Configura para exibir erros como exceções
+    $pdo = new PDO('sqlite:bancodedados.db');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    // Se ocorrer um erro na conexão, exibe a mensagem e interrompe o script
     die("Erro na conexão: " . $e->getMessage());
 }
-try {
-    // Consulta todos os usuários do banco de dados
-    $user_bd = $pdo->query('SELECT * FROM produto');
 
-    // Obtém os dados retornados pela consulta e os armazena em um array associativo
-    $dados = $user_bd->fetchAll(PDO::FETCH_ASSOC);
+// Verificar os dados recebidos
+$nomeproduto = $_POST['nomeproduto'] ?? '';
+$preco = $_POST['preco'] ?? '';
+$descricao = $_POST['descricao'] ?? '';
+$estoque = $_POST['estoque'] ?? '';
+$categoria = $_POST['categoria'] ?? '';
 
-    // Verifica se existem usuários cadastrados
-    if ($dados) {
-        echo '<pre>'; // Formata a saída no navegador
-        print_r($dados); // Exibe os dados do banco de forma legível
-    } else {
-        echo "Nenhum usuário encontrado."; // Exibe mensagem caso o banco esteja vazio
+// Inicializando a resposta
+$response = [
+    'success' => false,
+    'message' => 'Erro desconhecido.'
+];
+
+// Inserir produto, caso os dados do produto sejam válidos
+if (!empty($nomeproduto) && !empty($preco) && !empty($descricao) && !empty($estoque) && !empty($categoria)) {
+    try {
+        // Insere o produto no banco
+        $stmt = $pdo->prepare('INSERT INTO produto (nome, preco, descricao, estoque, id_sub_categoria) VALUES (:nomeproduto, :preco, :descricao, :estoque, :categoria)');
+        $stmt->execute([
+            ':nomeproduto' => $nomeproduto,
+            ':preco' => $preco,
+            ':descricao' => $descricao,
+            ':estoque' => $estoque,
+            ':categoria' => $categoria
+        ]);
+
+        $response['success'] = true;
+        $response['message'] = 'Produto cadastrado com sucesso!';
+    } catch (PDOException $e) {
+        $response['message'] = "Erro ao cadastrar produto: " . $e->getMessage();
     }
-} catch (PDOException $e) {
-    // Se houver erro na consulta SQL, exibe a mensagem de erro
-    die("Erro na consulta: " . $e->getMessage());
+} else {
+    $response['message'] = 'Erro: Dados do produto não estão completos.';
 }
 
-// Verifica se o formulário foi enviado (método POST)
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtém os dados enviados pelo formulário
-    $nomeproduto = $_POST['nomeproduto'];
-    $preco = $_POST['preco'];
-    $descricao = $_POST['descricao'];
-    $estoque = $_POST['estoque'];
-    $categoria = $_POST['categoria'];
+// Retornar a resposta em formato JSON
+echo json_encode($response);
 
-        try {
-            // Prepara a consulta para inserir um novo usuário no banco de dados
-            $stmt = $pdo->prepare('INSERT INTO produto (nome, preco, descricao, estoque, id_sub_categoria) VALUES (:nomeproduto, :preco, :descricao, :estoque, :categoria)');
-
-            // Executa a inserção passando os valores para os placeholders
-            $stmt->execute([
-                ':nomeproduto' => $nomeproduto,  
-                ':preco' => $preco,  
-                ':descricao' => $descricao,  
-                ':estoque' => $estoque,
-                ':categoria' => $categoria  
-            ]);
-
-            echo "Usuário cadastrado com sucesso!"; // Exibe mensagem de sucesso
-        } catch (PDOException $e) {
-            // Se houver erro na inserção, exibe a mensagem de erro
-            die("Erro ao cadastrar usuário: " . $e->getMessage());
-        }
-    } else {
-        // Se as senhas não forem iguais, exibe uma mensagem de erro
-        echo "As senhas não coincidem!";
-    };
 ?>
