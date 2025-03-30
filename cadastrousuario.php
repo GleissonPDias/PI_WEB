@@ -1,12 +1,6 @@
 <?php
-try {
-    // Conectar ao banco de dados SQLite
-    $pdo = new PDO('sqlite:bancodedados.db'); // Abre conexão com o arquivo demo.db
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Configura para exibir erros como exceções
-} catch (PDOException $e) {
-    // Se ocorrer um erro na conexão, exibe a mensagem e interrompe o script
-    die("Erro na conexão: " . $e->getMessage());
-}
+
+require("conexao_db.php");
 
 try {
     // Consulta todos os usuários do banco de dados

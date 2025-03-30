@@ -86,3 +86,31 @@ const exibirprodutos = () => {
 
 exibirprodutos();
 
+const excluir = () => {
+
+    let deletar = document.getElementById("excluir").value;
+
+
+    fetch("excluirproduto.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `nomeproduto=${encodeURIComponent(deletar)}`
+    })
+        .then(response => response.json())  // Processa a resposta como JSON
+        .then(data => {
+            if (data.success) {
+                alert(data.message);  // Exibe mensagem de sucesso
+                exibirprodutos();
+            } else {
+                alert(data.message);  // Exibe mensagem de erro
+            }
+            console.log("Resposta do servidor:", data);
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+        });
+};
+
+

@@ -1,5 +1,7 @@
 <?php
 
+require("conexao_db.php");
+
 header('Content-Type: application/json');
 
 // Verificar se a requisição é POST
@@ -11,13 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit; // Encerra a execução do script
 }
 
-// Conectar ao banco de dados SQLite
-try {
-    $pdo = new PDO('sqlite:bancodedados.db');
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Erro na conexão: " . $e->getMessage());
-}
+
 
 // Verificar os dados recebidos
 $nomeproduto = $_POST['nomeproduto'] ?? '';

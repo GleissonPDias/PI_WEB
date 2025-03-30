@@ -2,13 +2,7 @@
 
 header('Content-Type: application/json');
 
-// Conectar ao banco de dados SQLite
-try {
-    $pdo = new PDO('sqlite:bancodedados.db');
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Erro na conexão: " . $e->getMessage());
-}
+require("conexao_db.php");
 
 $novacategoria = $_POST['novacategoria'] ?? '';
 
