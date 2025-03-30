@@ -22,6 +22,8 @@ const adicionarcategoria = () => {
         });
 };
 
+
+
 const addproduto = () => {
     const nomeproduto = document.getElementById("nomeproduto").value;
     const preco = document.getElementById("preco").value;
@@ -29,6 +31,13 @@ const addproduto = () => {
     const estoque = document.getElementById("estoque").value;
     const categoria = document.getElementById("categoria").value;
     const subcategoria = document.getElementById("subcategoria").value;
+
+    document.getElementById("nomeproduto").value = "";
+    document.getElementById("preco").value = "";
+    document.getElementById("descricao").value = "";
+    document.getElementById("estoque").value = "";
+    document.getElementById("categoria").value = "";
+    document.getElementById("subcategoria").value = "";
 
     console.log("Dados enviados:", { nomeproduto, preco, descricao, estoque, categoria, subcategoria });
 
@@ -43,6 +52,7 @@ const addproduto = () => {
         .then(data => {
             if (data.success) {
                 alert(data.message);  // Exibe mensagem de sucesso
+                exibirprodutos();
             } else {
                 alert(data.message);  // Exibe mensagem de erro
             }
@@ -52,3 +62,27 @@ const addproduto = () => {
             console.error('Erro:', error);
         });
 };
+
+const exibirprodutos = () => {
+    let exibir = document.getElementById('exibir');
+
+    fetch('produtoscadastrados.php')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro na requisição');
+            }
+            return response.text();
+        })
+        .then(data => {
+            exibir.innerHTML = data;
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            exibir.innerHTML = 'Ocorreu um erro ao carregar os produtos.';
+        });
+
+
+}
+
+exibirprodutos();
+

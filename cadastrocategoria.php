@@ -33,3 +33,5 @@ if (!empty($novacategoria)) {
 // Enviar a resposta como JSON
 echo json_encode($response);
 ?>
+
+
