@@ -21,6 +21,7 @@ $preco = $_POST['preco'] ?? '';
 $descricao = $_POST['descricao'] ?? '';
 $estoque = $_POST['estoque'] ?? '';
 $categoria = $_POST['categoria'] ?? '';
+$imagem = $_POST['imagem'] ?? '';
 
 // Inicializando a resposta
 $response = [
@@ -29,16 +30,17 @@ $response = [
 ];
 
 // Inserir produto, caso os dados do produto sejam válidos
-if (!empty($nomeproduto) && !empty($preco) && !empty($descricao) && !empty($estoque) && !empty($categoria)) {
+if (!empty($nomeproduto) && !empty($preco) && !empty($descricao) && !empty($estoque) && !empty($categoria) && !empty($imagem)) {
     try {
         // Insere o produto no banco
-        $stmt = $pdo->prepare('INSERT INTO produto (nome, preco, descricao, estoque, id_sub_categoria) VALUES (:nomeproduto, :preco, :descricao, :estoque, :categoria)');
+        $stmt = $pdo->prepare('INSERT INTO produto (nome, preco, descricao, estoque, id_sub_categoria, imagem) VALUES (:nomeproduto, :preco, :descricao, :estoque, :categoria, :imagem)');
         $stmt->execute([
             ':nomeproduto' => $nomeproduto,
             ':preco' => $preco,
             ':descricao' => $descricao,
             ':estoque' => $estoque,
-            ':categoria' => $categoria
+            ':categoria' => $categoria,
+            ':imagem' => $imagem
         ]);
 
         $response['success'] = true;

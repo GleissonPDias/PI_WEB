@@ -10,18 +10,24 @@
 </head>
 
 <body>
-    <h2>Cadastro de Produtos</h2>
+    <h2>Produtos Ativos</h2>
 
     <div class="cadcontainer"></div>
 
     <div id="exibir" class="produtoscadastrados">
 
     </div>
-
-    <button type="button" onclick="exibirprodutos()">atualizar</button>
     <br><br>
-    <input type="text" id="excluir" placeholder="digite o nome do produto que deseja excluir:">
-    <button type="button" onclick="excluir()"> excluir </button>
+    <input type="text" id="excluir" placeholder="Nome do Produto:">
+    <button type="button" onclick="excluir()"> inativar </button>
+
+    <h2>Produtos inativos</h2>
+    <div id="inativos">
+
+    </div>
+    <input type="text" id="ativarproduto" placeholder="Nome do Produto:">
+    <button type="button" onclick="ativarproduto()">Ativar</button>
+
 
     <div class="adicaoprodutos">
         <form>
@@ -66,6 +72,11 @@
             <label for="descricao">Descrição:</label>
             <textarea id="descricao" name="descricao" rows="4" cols="50"
                 placeholder="Escreva a descrição aqui..."></textarea><br><br>
+
+            <label for="estoque">Estoque:</label>
+            <input type="text" id="imagem" name="imagem" placeholder="link da imagem">
+            <br>
+
 
             <label for="estoque">Estoque:</label>
             <input type="number" id="estoque" name="estoque" placeholder="Quantidade em estoque" min="0">
