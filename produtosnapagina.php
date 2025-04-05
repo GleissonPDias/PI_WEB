@@ -13,14 +13,21 @@ try {
 }
 
 foreach ($dados as $produtos) { 
-    echo "<figure>";
+;
+    echo '<figure id="' . $produtos['id_sub_categoria'] . '">';
 
     // Corrigido o erro de aspas dentro do echo
     echo '<img src="' . $produtos['imagem'] . '">';
     echo '<h1 class="nameP">' . $produtos['nome'] . '</h1>';
-    echo '<button class="price">' . $produtos['preco'] . '</button>';
+    echo '<button type="button" class="price">R$ ' . $produtos['preco'] . '</button>';
     echo '<p>' . $produtos['descricao'] . '</p>';
-
     echo "</figure>";
+
+    
+    $id_sub_categoria = $produtos['id_sub_categoria'] ?? null;
+    $categoriadoproduto = $_POST[$id_sub_categoria] ?? null;
+
+
+
 }
 ?>

@@ -6,6 +6,7 @@ header('Content-Type: application/json');
 
 
 $nomeproduto = $_POST['nomeproduto'] ?? '';
+$id = $_POST['id'] ?? '';
 
 // Inicializando a resposta
 $response = [
@@ -17,9 +18,10 @@ $response = [
 if (!empty($nomeproduto)) {
     try {
         // Insere o produto no banco
-        $stmt = $pdo->prepare('UPDATE produto SET inativo = 1 WHERE nome = :nomeproduto');
+        $stmt = $pdo->prepare('UPDATE produto SET inativo = 1 WHERE nome = :nomeproduto OR id = :id');
         $stmt->execute([
             ':nomeproduto' => $nomeproduto,
+            ':id' => $id
         ]);
 
         $response['success'] = true;

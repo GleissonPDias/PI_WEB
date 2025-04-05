@@ -18,10 +18,11 @@ if (empty($dados)) {
     echo "<table border='1'>";  // Adicionando borda à tabela para visualização
     echo "<thead>";
     echo "<tr>";
+    echo "<th>Cod.Produto</th>";
     echo "<th>Nome</th>";
     echo "<th>Preço</th>";
     echo "<th>Descrição</th>";
-    echo "<th>CATEGORIA</th>";
+    echo "<th>Categoria</th>";
     echo "<th>Estoque</th>";
     echo "</tr>";
     echo "</thead>";
@@ -29,6 +30,7 @@ if (empty($dados)) {
 
     foreach ($dados as $produtos) { 
         echo "<tr>";
+        echo "<td>" . $produtos['id'] . "</td>";
         echo "<td>" . $produtos['nome'] . "</td>";
         echo "<td>" . $produtos['preco'] . "</td>";
         echo "<td>" . $produtos['descricao'] . "</td>";
