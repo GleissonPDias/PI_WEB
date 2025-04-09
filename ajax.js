@@ -41,6 +41,7 @@ produtosnapagina();
 
 const categorias = () => {
     let categorias = document.getElementById('categoria');
+
     fetch('categorias.php')
         .then(response => response.text())
         .then(data => {
@@ -216,6 +217,53 @@ const loceditar = () => {
             prodlocalizado.innerHTML = 'Ocorreu um erro ao carregar os produtos.';
         });
 
+
+
+}
+
+const editar = () => {
+    const id = document.getElementById("idedit").value;
+    const nomeproduto = document.getElementById("nomeedit").value.toUpperCase();
+    const preco = document.getElementById("precoedit").value;
+    const descricao = document.getElementById("descedit").value;
+    const estoque = document.getElementById("estoqueedit").value;
+    const categoria = document.getElementById("categoriaedit").value;
+    const imagem = document.getElementById("imagemedit").value;
+
+    // Limpar os campos de entrada após capturar os dados
+    document.getElementById("idedit").value = "";
+    document.getElementById("nomeedit").value = "";
+    document.getElementById("precoedit").value = "";
+    document.getElementById("descedit").value = "";
+    document.getElementById("estoqueedit").value = "";
+    document.getElementById("categoriaedit").value = "";
+    document.getElementById("imagemedit").value = "";
+
+    console.log("Dados enviados:", { nomeproduto, preco, descricao, estoque, categoria, imagem });
+
+    fetch("editar.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"  // O PHP vai receber os dados via $_POST
+        },
+        body: `nomeproduto=${encodeURIComponent(nomeproduto)}&preco=${encodeURIComponent(preco)}&descricao=${encodeURIComponent(descricao)}&estoque=${encodeURIComponent(estoque)}&categoria=${encodeURIComponent(categoria)}&imagem=${encodeURIComponent(imagem)}&id=${encodeURIComponent(id)}`
+    })
+        .then(response => response.json())  // Processa a resposta como JSON
+        .then(data => {
+            if (data.success) {
+                alert(data.success);  // Exibe mensagem de sucesso
+                exibirprodutos(); // Recarrega os produtos, se necessário
+            } else {
+                alert(data.error);  // Exibe mensagem de erro
+            }
+            console.log("Resposta do servidor:", data);
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+        });
+    produtosnapagina();
+    ativos();
+    inativos();
 }
 
 
