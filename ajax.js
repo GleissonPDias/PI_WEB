@@ -24,20 +24,30 @@ const inativos = () => exibirprodutos("inativos", "inativos.php");
 ativos();
 inativos();
 
-const produtosnapagina = () => {
+const produtosnapagina = (url, titulo) => {
     let oncard = document.getElementById('card');
+    let subtitle = document.getElementById('subtitle');
 
-    fetch("produtosnapagina.php")
+    fetch(url)
         .then(response => response.text()) // Corrigido: adicionado os parênteses
         .then(data => {
             oncard.innerHTML = data;
+            subtitle.innerHTML = titulo;
         })
         .catch(error => {
             console.error('Erro ao carregar os produtos:', error);
         });
 };
 
-produtosnapagina();
+const menu = () => produtosnapagina('menu.php', 'MENU');
+menu();
+
+const lanches = () => produtosnapagina('lanches.php', 'LANCHES');
+const combos = () => produtosnapagina('combos.php', 'COMBOS');
+const bebidas = () => produtosnapagina('bebidas.php', 'BEBIDAS');
+
+
+
 
 const categorias = () => {
     let categorias = document.getElementById('categoria');
