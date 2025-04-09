@@ -3,7 +3,7 @@ header('Content-Type: text/html');
 require("conexao_db.php");
 
 try {
-    $stmt = $pdo->prepare('SELECT * FROM produto WHERE inativo IS NULL');
+    $stmt = $pdo->prepare('SELECT * FROM produto WHERE inativo IS NOT NULL');
     $stmt->execute();
     $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

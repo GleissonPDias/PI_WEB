@@ -1,40 +1,28 @@
-/*const produtosnapagina = () => {
-    let card_Lanches = document.getElementById('card_Lanches');
-    let card_Combos = document.getElementById('card_Combos');
-    let card_Bebidas = document.getElementById('card_Bebidas');
+const exibirprodutos = (prodId, url) => {
 
-    if (figure_id == document.getElementById(`card_Lanches`)) {
+    let exibir = document.getElementById(prodId);
 
-        fetch(`produtosnapagina.php?categoriadoproduto=${}`)
-            .then(response => response.text())
-            .then(data => {
-                card_Lanches.innerHTML = data;
-            })
-            .catch(error => {
-                console.error('Erro ao carregar os produtos:', error);
-            });
-    } else if (figure_id == document.getElementById(`card_Combos`)) {
-        fetch("produtosnapagina.php")
-            .then(response => response.text())
-            .then(data => {
-                card_Combos.innerHTML = data;
-            })
-            .catch(error => {
-                console.error('Erro ao carregar os produtos:', error);
-            });
-    } else {
-        fetch("produtosnapagina.php")
-            .then(response => response.text())
-            .then(data => {
-                card_Bebidas.innerHTML = data;
-            })
-            .catch(error => {
-                console.error('Erro ao carregar os produtos:', error);
-            });
-    }
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro na requisição');
+            }
+            return response.text();
+        })
+        .then(data => {
+            exibir.innerHTML = data;
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            exibir.innerHTML = 'Ocorreu um erro ao carregar os produtos.';
+        });
+
 }
+const ativos = () => exibirprodutos("ativos", "ativos.php");
+const inativos = () => exibirprodutos("inativos", "inativos.php");
 
-*/
+ativos();
+inativos();
 
 const produtosnapagina = () => {
     let oncard = document.getElementById('card');
@@ -171,10 +159,49 @@ const addproduto = () => {
     produtosnapagina();
 };
 
-const exibirprodutos = () => {
-    let exibir = document.getElementById('exibir');
 
-    fetch('produtoscadastrados.php')
+const processarProduto = (inputId, url) => {
+    const valor = document.getElementById(inputId).value;
+    document.getElementById(inputId).value = "";
+
+
+    fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `nomeproduto=${encodeURIComponent(valor)}&id=${encodeURIComponent(valor)}`
+    })
+        .then(response => response.json())
+        .then(data => {
+            ativos();
+            inativos();
+            alert(data.message);
+            if (data.success) {
+            }
+            console.log("Resposta do servidor:", data);
+        })
+        .catch(error => console.error('Erro:', error));
+
+};
+
+const inativar = () => processarProduto("inativar", "excluirproduto.php");
+const ativar = () => processarProduto("ativar", "ativarprodutos.php");
+
+
+const loceditar = () => {
+
+    let prodedit = document.getElementById('prodedit').value;
+    document.getElementById('prodedit').value = '';
+    prodloc = document.getElementById('prodlocalizado');
+
+    fetch("localizaredit.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `nome=${encodeURIComponent(prodedit)}&id=${encodeURIComponent(prodedit)}`
+    })
         .then(response => {
             if (!response.ok) {
                 throw new Error('Erro na requisição');
@@ -182,100 +209,13 @@ const exibirprodutos = () => {
             return response.text();
         })
         .then(data => {
-            exibir.innerHTML = data;
+            prodlocalizado.innerHTML = data;
         })
         .catch(error => {
             console.error('Erro:', error);
-            exibir.innerHTML = 'Ocorreu um erro ao carregar os produtos.';
+            prodlocalizado.innerHTML = 'Ocorreu um erro ao carregar os produtos.';
         });
-
 
 }
-
-exibirprodutos();
-
-
-
-const inativos = () => {
-    let exibir = document.getElementById('inativos');
-
-    fetch('inativos.php')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Erro na requisição');
-            }
-            return response.text();
-        })
-        .then(data => {
-            exibir.innerHTML = data;
-        })
-        .catch(error => {
-            console.error('Erro:', error);
-            exibir.innerHTML = 'Ocorreu um erro ao carregar os produtos.';
-        });
-
-
-}
-
-inativos();
-
-const excluir = () => {
-
-    let deletar = document.getElementById("excluir").value;
-    document.getElementById("excluir").value = "";
-
-
-    fetch("excluirproduto.php", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body: `nomeproduto=${encodeURIComponent(deletar)}&id=${encodeURIComponent(deletar)}`
-    })
-        .then(response => response.json())  // Processa a resposta como JSON
-        .then(data => {
-            if (data.success) {
-                alert(data.message);  // Exibe mensagem de sucesso
-                exibirprodutos();
-                inativos();
-            } else {
-                alert(data.message);  // Exibe mensagem de erro
-            }
-            console.log("Resposta do servidor:", data);
-        })
-        .catch(error => {
-            console.error('Erro:', error);
-        });
-};
-
-const ativarproduto = () => {
-
-    let ativar = document.getElementById("ativarproduto").value;
-    document.getElementById("ativarproduto").value = "";
-
-
-    fetch("ativarprodutos.php", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body: `nomeproduto=${encodeURIComponent(ativar)}&id=${encodeURIComponent(ativar)}`
-    })
-        .then(response => response.json())  // Processa a resposta como JSON
-        .then(data => {
-            if (data.success) {
-                alert(data.message);  // Exibe mensagem de sucesso
-                exibirprodutos();
-                inativos();
-            } else {
-                alert(data.message);  // Exibe mensagem de erro
-            }
-            console.log("Resposta do servidor:", data);
-        })
-        .catch(error => {
-            console.error('Erro:', error);
-        });
-};
-
 
 

@@ -3,7 +3,7 @@ header('Content-Type: text/html');
 require('conexao_db.php');
 
 try {
-    $stmt = $pdo->prepare('SELECT * FROM produto WHERE inativo IS NULL');
+    $stmt = $pdo->prepare('SELECT * FROM produto WHERE inativo IS NOT NULL');
     $stmt->execute();
     $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -19,7 +19,7 @@ foreach ($dados as $produtos) {
     // Corrigido o erro de aspas dentro do echo
     echo '<img src="' . $produtos['imagem'] . '">';
     echo '<h1 class="nameP">' . $produtos['nome'] . '</h1>';
-    echo '<button type="button" class="price">R$ ' . $produtos['preco'] . '</button>';
+    echo '<button type="button" class="price">R$ ' . number_format($produtos['preco'], 2, ',', '.') . '</button>';
     echo '<p>' . $produtos['descricao'] . '</p>';
     echo "</figure>";
 

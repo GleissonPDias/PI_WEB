@@ -13,20 +13,74 @@
     <h2>Produtos Ativos</h2>
 
     <div class="cadcontainer"></div>
-
-    <div id="exibir" class="produtoscadastrados">
+    <div id="ativos">
 
     </div>
     <br><br>
-    <input type="text" id="excluir" placeholder="Nome ou Codigo.:">
-    <button type="button" onclick="excluir()"> inativar </button>
+    <input type="text" id="inativar" placeholder="Nome ou Codigo.:">
+    <button type="button" onclick="inativar()"> inativar </button>
 
     <h2>Produtos inativos</h2>
     <div id="inativos">
 
     </div>
-    <input type="text" id="ativarproduto" placeholder="Nome ou Codigo.:">
-    <button type="button" onclick="ativarproduto()">Ativar</button>
+    <input type="text" id="ativar" placeholder="Nome ou Codigo.:">
+    <button type="button" onclick="ativar()">Ativar</button>
+
+    <h2>Editar Produtos</h2>
+    <input type="text" id="prodedit" placeholder="Nome ou Codigo.:">
+    <button type="button" onclick="loceditar()"> localizar produto </button>
+    <div id="prodlocalizado"></div>
+    <br> <br>
+    <div id="editar">
+
+        <form>
+            <label for="">Nome ou ID:</label>
+            <input type="text" id="idedit" name="idedit" placeholder="Nome do produto">
+
+
+            <label for="nomeproduto">Nome:</label>
+            <input type="text" id="nomeproduto" name="nomeproduto" placeholder="Nome do produto">
+            <br>
+
+            <label for="categoria">Categoria</label>
+            <select id="categori" name="categoria">
+
+            </select>
+
+
+
+            <label for="subcategoria">Sub Categoria</label>
+            <select id="subcategori" name="subcategoria">
+
+            </select>
+
+
+
+
+            <label for="preco">Preço:</label>
+            <input type="number" id="preco" name="preco" placeholder="Preço do produto" min="0" step="0.01">
+            <br>
+
+            <label for="descricao">Descrição:</label>
+            <textarea id="descricao" name="descricao" rows="4" cols="50"
+                placeholder="Escreva a descrição aqui..."></textarea><br><br>
+
+            <label for="estoque">Imagem:</label>
+            <input type="text" id="imagem" name="imagem" placeholder="link da imagem">
+            <br>
+
+
+            <label for="estoque">Estoque:</label>
+            <input type="number" id="estoque" name="estoque" placeholder="Quantidade em estoque" min="0">
+            <br>
+
+            <button type="button" onclick="addproduto()">Adicionar novo produto</button>
+            <button type="reset">Limpar</button>
+        </form>
+
+    </div>
+
 
 
     <div class="adicaoprodutos">
@@ -56,6 +110,17 @@
             <input type="text" id="subcategoria-adicionar" name="novasubcategoria" placeholder="Nova categoria">
             <button type="button" onclick="adicionarsubcategoria()">Adicionar nova subcategoria</button>
             <br>
+
+            <label for="editarsubcategoria">Editar Sub Categoria</label>
+            <select id="editarsubcategoria" name="editarsubcategoria">
+
+            </select>
+
+            <label for="subcategoria-adicionar">Adicionar</label>
+            <input type="text" id="editarsubcategoria" name="editarnovasubcategoria" placeholder="Nova categoria">
+            <button type="button" onclick="editarsubcategoria()">editar nova subcategoria</button>
+            <br>
+
 
 
             <label for="preco">Preço:</label>

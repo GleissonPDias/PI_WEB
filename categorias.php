@@ -3,7 +3,7 @@ header('Content-Type: text/html');
 require("conexao_db.php");
 
 try {
-    $stmt = $pdo->prepare('SELECT NOME from categoria');
+    $stmt = $pdo->prepare('SELECT nome from categoria');
     $stmt->execute();
     $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -17,7 +17,7 @@ if (empty($dados)) {
 } else {
 
     foreach ($dados as $produtos) { 
-        echo '<option value="' . $produtos['NOME'] . '">' . $produtos['NOME'] . '</option>';
+        echo '<option value="' . $produtos['nome'] . '">' . $produtos['nome'] . '</option>';
 
 }}
 

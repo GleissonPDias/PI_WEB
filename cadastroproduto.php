@@ -19,7 +19,7 @@ $preco = $_POST['preco'] ?? '';
 $descricao = $_POST['descricao'] ?? '';
 $estoque = $_POST['estoque'] ?? '';
 $categoria = $_POST['categoria'] ?? '';
-$imagem = $_POST['imagem'] ?? '';
+$imagem = rtrim($_POST['imagem'] ?? '', '}');
 
 $response = [];
 

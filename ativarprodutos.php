@@ -18,7 +18,7 @@ $response = [
 if (!empty($nomeproduto)) {
     try {
         // Insere o produto no banco
-        $stmt = $pdo->prepare('UPDATE produto SET inativo = NULL WHERE nome = :nomeproduto OR id = :id');
+        $stmt = $pdo->prepare('UPDATE produto SET inativo = 1 WHERE nome = :nomeproduto OR id = :id');
         $stmt->execute([
             ':nomeproduto' => $nomeproduto,
             ':id' => $id

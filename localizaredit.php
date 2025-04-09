@@ -2,9 +2,15 @@
 header('Content-Type: text/html');
 require("conexao_db.php");
 
+$nome = $_POST['nome'] ?? '';
+$id = $_POST['id'] ?? '';
+
 try {
-    $stmt = $pdo->prepare('SELECT * FROM produto WHERE inativo IS NULL');
-    $stmt->execute();
+    $stmt = $pdo->prepare('SELECT * FROM produto WHERE nome = :nome OR id = :id');
+    $stmt->execute([
+        ':nome' => $nome,
+        ':id' => $id
+    ]);
     $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 } catch (PDOException $e) {
@@ -15,23 +21,12 @@ try {
 if (empty($dados)) {
     echo "Nenhum produto encontrado.";
 } else {
-    echo "<table border='1'>";  // Adicionando borda à tabela para visualização
-    echo "<thead>";
-    echo "<tr>";
-    echo "<th>Cod.Produto</th>";
-    echo "<th>Nome</th>";
-    echo "<th>Preço</th>";
-    echo "<th>Descrição</th>";
-    echo "<th>Categoria</th>";
-    echo "<th>Estoque</th>";
-    echo "</tr>";
-    echo "</thead>";
-    echo "<tbody>";
+
 
     foreach ($dados as $produtos) { 
         echo "<tr>";
-        echo "<td>" . $produtos['id'] . "</td>";
-        echo "<td>" . $produtos['nome'] . "</td>";
+        echo '<input type="text" value="' . $produtos['id'] . '">';
+        echo '<input type="text" value="' . $produtos['nome'] . '">';
         echo "<td>" . $produtos['preco'] . "</td>";
         echo "<td>" . $produtos['descricao'] . "</td>";
         echo "<td>" . $produtos['id_sub_categoria'] . "</td>";
