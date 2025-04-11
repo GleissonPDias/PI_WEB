@@ -60,7 +60,19 @@ if (empty($dados)) {
         echo '<input id="estoqueedit" type="text" value="' . $produtos['estoque'] . '"><br>';
 
         echo '<label for="imagemedit">Imagem</label>';
-        echo '<input id="imagemedit" type="text" value="' . $produtos['imagem'] . '"><br>';
+        echo '<input id="imagemedit" type="text" value="' . $produtos['imagem'] . '"><br> <br> <br>';
+    
+        echo '<section class="cardv" > ';
+        echo '<h2>Produto Selecionado: </h2>';
+        echo '<figure id="' . $produtos['id_sub_categoria'] . '">';
+        echo '<img src="' . $produtos['imagem'] . '">';
+        echo '<h1 class="nameP">' . $produtos['nome'] . '</h1>';
+        echo '<button type="button" class="price">R$ ' . number_format($produtos['preco'], 2, ',', '.') . '</button>';
+        echo '<p>' . $produtos['descricao'] . '</p>';
+        echo "</figure>";
+        echo "</section>";
+    
+    
     }
 }
 ?>

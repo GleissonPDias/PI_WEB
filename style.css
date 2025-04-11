@@ -165,6 +165,12 @@ header section figure img {
 
 }
 
+.btn-filtro {
+    margin-left: 1000px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 /* cardapio de fato */
 
 
@@ -181,6 +187,16 @@ header section figure img {
     position: relative;
 }
 
+.cardv {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    max-width: 500px;
+}
+
 .card figure {
     margin-top: 30px;
     margin-left: 100px;
@@ -191,22 +207,47 @@ header section figure img {
     margin-bottom: 80px;
     overflow: hidden;
     position: relative;
-
-
 }
 
-.card figure:hover {
+.cardv figure {
+
+
+    border-radius: 5%;
+    width: 500px;
+    background: rgba(255, 255, 255, 0.623);
+    height: 350px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    position: relative;
+}
+
+.card figure:hover,
+.cardv figure:hover {
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
     height: 380px;
     transition-duration: 0.4s;
     text-align: center;
-
 }
 
-.card img {
+.card img,
+.cardv img {
     width: 100%;
     height: 100%;
+}
 
+.card figure:hover .nameP,
+.card figure:hover .price,
+.card figure:hover p,
+.cardv figure:hover .nameP,
+.cardv figure:hover .price,
+.cardv figure:hover p {
+    opacity: 100%;
+    /* Fica visível quando hover */
+}
+
+.card figure:hover .price,
+.cardv figure:hover .price {
+    opacity: 1 !important;
 }
 
 

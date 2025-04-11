@@ -24,27 +24,27 @@ const inativos = () => exibirprodutos("inativos", "inativos.php");
 ativos();
 inativos();
 
-const produtosnapagina = (url, titulo) => {
+const produtosnapagina = (url) => {
     let oncard = document.getElementById('card');
-    let subtitle = document.getElementById('subtitle');
+
 
     fetch(url)
         .then(response => response.text()) // Corrigido: adicionado os parênteses
         .then(data => {
             oncard.innerHTML = data;
-            subtitle.innerHTML = titulo;
+
         })
         .catch(error => {
             console.error('Erro ao carregar os produtos:', error);
         });
 };
 
-const menu = () => produtosnapagina('menu.php', 'MENU');
+const menu = () => produtosnapagina('menu.php');
 menu();
 
-const lanches = () => produtosnapagina('lanches.php', 'LANCHES');
-const combos = () => produtosnapagina('combos.php', 'COMBOS');
-const bebidas = () => produtosnapagina('bebidas.php', 'BEBIDAS');
+const lanches = () => produtosnapagina('lanches.php');
+const combos = () => produtosnapagina('combos.php');
+const bebidas = () => produtosnapagina('bebidas.php');
 
 
 
@@ -276,4 +276,46 @@ const editar = () => {
     inativos();
 }
 
+function aplicarFiltros() {
+    const categoria = document.getElementById('categoriaFiltro').value;
+    const preco = document.getElementById('ordemPreco').value;
+    const nome = document.getElementById('ordemNome').value;
+    const pesquisa = document.getElementById('pesquisaNome').value;
 
+    fetch('filtroprodutos.php', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `categoria=${encodeURIComponent(categoria)}&preco=${encodeURIComponent(preco)}&nome=${encodeURIComponent(nome)}&pesquisa=${encodeURIComponent(pesquisa)}`
+    })
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('card').innerHTML = data;
+        })
+        .catch(error => console.error('Erro ao filtrar:', error));
+}
+
+
+const categoriasparaeditar = () => {
+
+    let categoriaslocalizadas = document.getElementById('categoriaslocalizadas')
+
+    fetch('localizarcategorias.php')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro na requisição');
+            }
+            return response.text();
+        })
+        .then(data => {
+            categoriaslocalizadas.innerHTML = data;
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            categoriaslocalizadas.innerHTML = 'Ocorreu um erro ao carregar os produtos.';
+        });
+
+}
+
+categoriasparaeditar();

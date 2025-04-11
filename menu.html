@@ -116,7 +116,7 @@
                     <button class="btn-subcard" type="button" onclick="menu()">MENU</button>
                 </li>
                 <li>
-                    <button class="btn-subcard" type="button" onclick="lanches()">Lanches</button>
+                    <button class="btn-subcard" type="button" onclick="lanches()">LANCHES</button>
                 </li>
                 <li>
                     <button class="btn-subcard" type="button" onclick="combos()">COMBOS</button>
@@ -131,7 +131,33 @@
 
     </section>
 
-    <h1 id="subtitle"> </h1>
+    <h1 id="subtitle1">Cardapio</h1>
+    <div id="filtros">
+        <select id="categoriaFiltro">
+            <option value="">Todas as categorias</option>
+            <option value="LANCHES">Lanches</option>
+            <option value="BEBIDAS">Bebidas</option>
+            <option value="COMBOS">Combos</option>
+        </select>
+
+        <select id="ordemPreco">
+            <option value="">Ordem de preço</option>
+            <option value="asc">Preço: menor para maior</option>
+            <option value="desc">Preço: maior para menor</option>
+        </select>
+
+        <select id="ordemNome">
+            <option value="">Ordem alfabética</option>
+            <option value="az">A - Z</option>
+            <option value="za">Z - A</option>
+        </select>
+
+        <input type="text" id="pesquisaNome" placeholder="Pesquisar por nome...">
+
+        <button onclick="aplicarFiltros()">Filtrar</button>
+    </div>
+
+    </select>
     <section class="card" id="card">
 
 
@@ -149,7 +175,8 @@
             </a>
             <h2>Nossas redes sociais estão sempre atualizadas, então, não deixe de nos seguir e curtir!</h2>
             <h3>Funcionamento:</h3>
-            <h4>Nossas redes sociais estão sempre atualizadas para que você possa acompanhar nossas mudanças no horário
+            <h4>Nossas redes sociais estão sempre atualizadas para que você possa acompanhar nossas mudanças no
+                horário
                 de funcionamento. Clique nos ícones das redes sociais acima, para ser direcionado.</h4>
 
             <h4>AV. Doutora Nise da Silveira - N•100 - Jardim Das fontes - São Paulo - SP - CEP:04894420</h4>
