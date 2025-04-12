@@ -23,6 +23,7 @@ if (empty($dados)) {
     echo "<th>Preço</th>";
     echo "<th>Descrição</th>";
     echo "<th>Categoria</th>";
+    echo "<th>Sub Categoria</th>";
     echo "<th>Estoque</th>";
     echo "</tr>";
     echo "</thead>";
@@ -34,6 +35,7 @@ if (empty($dados)) {
         echo "<td>" . $produtos['nome'] . "</td>";
         echo "<td>" . $produtos['preco'] . "</td>";
         echo "<td>" . $produtos['descricao'] . "</td>";
+        echo "<td>" . $produtos['id_categoria'] . "</td>";
         echo "<td>" . $produtos['id_sub_categoria'] . "</td>";
         echo "<td>" . $produtos['estoque'] . "</td>";
         echo "</tr>";

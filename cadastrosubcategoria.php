@@ -6,6 +6,7 @@ header('Content-Type: application/json');
 require("conexao_db.php");
 
 $novasubcategoria = $_POST['novasubcategoria'] ?? '';
+$id_categoria = $_POST['id_categoria'] ?? '';
 
 $response = [];
 
@@ -22,9 +23,10 @@ try {
     } elseif (!empty($novasubcategoria)) {
         // Se a categoria não existe, insere a nova categoria
         try {
-            $stmt = $pdo->prepare('INSERT INTO sub_categoria (nome) VALUES (:novasubcategoria)');
+            $stmt = $pdo->prepare('INSERT INTO sub_categoria (nome, id_categoria) VALUES (:novasubcategoria, :id_categoria)');
             $stmt->execute([
-                ':novasubcategoria' => $novasubcategoria
+                ':novasubcategoria' => $novasubcategoria,
+                ':id_categoria' => $id_categoria
             ]);
 
             $response['success'] = true;

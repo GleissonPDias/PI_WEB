@@ -171,6 +171,11 @@ header section figure img {
     margin-bottom: 10px;
 }
 
+.filtros {
+    margin-left: 500px;
+    display: flex;
+}
+
 /* cardapio de fato */
 
 

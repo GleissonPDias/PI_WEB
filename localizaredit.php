@@ -17,6 +17,16 @@ try {
 
 try {
 
+    $stmt = $pdo->prepare('SELECT nome, id FROM sub_categoria');
+    $stmt->execute();
+    $subcategorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+
+    die("Erro na consulta: " . $e->getMessage());
+}
+
+try {
+
     $stmt = $pdo->prepare('SELECT * FROM produto WHERE nome = :nome OR id = :id');
     $stmt->execute([
         ':nome' => $nome,
@@ -44,10 +54,22 @@ if (empty($dados)) {
         
         // Preenchendo o select com categorias
         foreach ($categorias as $categoria) {
-            $selected = ($produtos['id_sub_categoria'] == $categoria['id']) ? 'selected' : ''; // Verifica se a categoria do produto é a mesma
-            echo '<option value="' . $categoria['nome'] . '" ' . $selected . '>' . $categoria['nome'] . '</option>';
+            $selectedcat = ($produtos['id_categoria'] == $categoria['id']) ? 'selected' : ''; // Verifica se a categoria do produto é a mesma
+            echo '<option value="' . $categoria['nome'] . '" ' . $selectedcat . '>' . $categoria['nome'] . '</option>';
         }
         echo '</select><br>';
+
+
+        echo '<label for="subcategoriaedit">Sub Categoria</label>';
+        echo '<select id="subcategoriaedit">';
+        
+        // Preenchendo o select com categorias
+        foreach ($subcategorias as $subcategoria) {
+            $selected = ($produtos['id_sub_categoria'] == $subcategoria['id']) ? 'selected' : ''; // Verifica se a categoria do produto é a mesma
+            echo '<option value="' . $subcategoria['nome'] . '" ' . $selected . '>' . $subcategoria['nome'] . '</option>';
+        }
+        echo '</select><br>';
+
 
 
         echo '<label for="precoedit">Preço</label>';

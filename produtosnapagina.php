@@ -3,7 +3,7 @@ header('Content-Type: text/html');
 require('conexao_db.php');
 
 try {
-    $stmt = $pdo->prepare('SELECT * FROM produto WHERE inativo IS NOT NULL');
+    $stmt = $pdo->prepare("SELECT * FROM produto WHERE inativo IS NOT NULL");
     $stmt->execute();
     $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -22,12 +22,6 @@ foreach ($dados as $produtos) {
     echo '<button type="button" class="price">R$ ' . number_format($produtos['preco'], 2, ',', '.') . '</button>';
     echo '<p>' . $produtos['descricao'] . '</p>';
     echo "</figure>";
-
-    
-    $id_sub_categoria = $produtos['id_sub_categoria'] ?? null;
-    $categoriadoproduto = $_POST[$id_sub_categoria] ?? null;
-
-
 
 }
 ?>

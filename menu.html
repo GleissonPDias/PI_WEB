@@ -73,17 +73,17 @@
                     <!-- fim slide botão-->
 
                     <!--slide imagens-->
-                    <div class="slide first">
-                        <img src="/PROJETO PI/carrossel/BANNER.png" alt="imagem1">
+                    <div class="slide first" id="slide1">
+
                     </div>
                     <div class="slide">
-                        <img src="/PROJETO PI/carrossel/BANNER2.png" alt="imagem 2">
+                        <img src="img.jpg" alt="imagem 2">
                     </div>
                     <div class="slide">
-                        <img src="/PROJETO PI/carrossel/BANNER3.png" alt="imagem 3">
+                        <img src="img.jpg" alt="imagem 3">
                     </div>
                     <div class="slide">
-                        <img src="/PROJETO PI/carrossel/BANNER4.png" alt="imagem 4">
+                        <img src="img.jpg" alt="imagem 4">
                     </div>
                     <!-- fim slide imagens-->
 
@@ -109,35 +109,18 @@
         </section>
     </header>
 
-    <section id="subcardapio">
-        <nav class="subcard">
-            <ul>
-                <li>
-                    <button class="btn-subcard" type="button" onclick="menu()">MENU</button>
-                </li>
-                <li>
-                    <button class="btn-subcard" type="button" onclick="lanches()">LANCHES</button>
-                </li>
-                <li>
-                    <button class="btn-subcard" type="button" onclick="combos()">COMBOS</button>
-                </li>
-                <li>
-                    <button class="btn-subcard" type="button" onclick="bebidas()">BEBIDAS</button>
-                </li>
 
-            </ul>
-
-        </nav>
-
-    </section>
 
     <h1 id="subtitle1">Cardapio</h1>
-    <div id="filtros">
+    <div class="filtros" id="filtros">
+        <label for="categoriaFiltro">Tipo:</label>
         <select id="categoriaFiltro">
-            <option value="">Todas as categorias</option>
-            <option value="LANCHES">Lanches</option>
-            <option value="BEBIDAS">Bebidas</option>
-            <option value="COMBOS">Combos</option>
+
+        </select>
+
+        <label for="subcategoriaFiltro">Tipo:</label>
+        <select id="subcategoriaFiltro">
+
         </select>
 
         <select id="ordemPreco">

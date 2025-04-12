@@ -8,23 +8,21 @@ try {
 
     $stmt = $pdo->prepare('SELECT nome FROM categoria');
     $stmt->execute();
-    $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
 
     die("Erro na consulta: " . $e->getMessage());
 }
 
-if (empty($dados)) {
+
+
+if (empty($categorias)) {
     echo "Nenhuma categoria encontrada.";
 } else {
-    foreach ($dados as $produtos) {
+    foreach ($categorias as $categoria) {
         echo '<br>';
-        echo '<option value="' . $produtos['nome'] . '">' . $produtos['nome'] . '</option>';
+        echo '<option value="' . $categoria['nome'] . '">' . $categoria['nome'] . '</option>';
         echo '</select><br>';
-
-
-    
-    
     }
 }
 ?>

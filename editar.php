@@ -20,18 +20,19 @@ $preco = $_POST['preco'] ?? '';
 $descricao = $_POST['descricao'] ?? '';
 $estoque = $_POST['estoque'] ?? '';
 $categoria = $_POST['categoria'] ?? '';
+$subcategoria = $_POST['subcategoria'] ?? '';
 $imagem = rtrim($_POST['imagem'] ?? '', '}');  // Certifique-se de que isso está correto para o seu caso
 
 $response = [];
 
 // Verificar se todos os dados obrigatórios estão presentes
-if (empty($nomeproduto) || empty($preco) || empty($descricao) || empty($estoque) || empty($categoria) || empty($imagem)) {
+if (empty($nomeproduto) || empty($preco) || empty($descricao) || empty($estoque) || empty($categoria) || empty($subcategoria) || empty($imagem)) {
     $response['error'] = 'Todos os campos devem ser preenchidos.';
 } else {
     // Verificar se o produto já existe e se podemos atualizar
     try {
         // Insere o produto no banco
-        $stmt = $pdo->prepare('UPDATE produto SET nome = :nomeproduto, preco = :preco, descricao = :descricao, estoque = :estoque, id_sub_categoria = :categoria, imagem = :imagem WHERE id = :id');
+        $stmt = $pdo->prepare('UPDATE produto SET nome = :nomeproduto, preco = :preco, descricao = :descricao, estoque = :estoque, id_categoria = :categoria, id_sub_categoria = :subcategoria, imagem = :imagem WHERE id = :id');
         $stmt->execute([
             ':id' => $id,
             ':nomeproduto' => $nomeproduto,
@@ -39,6 +40,7 @@ if (empty($nomeproduto) || empty($preco) || empty($descricao) || empty($estoque)
             ':descricao' => $descricao,
             ':estoque' => $estoque,
             ':categoria' => $categoria,
+            ':subcategoria' => $subcategoria,
             ':imagem' => $imagem
         ]);
 

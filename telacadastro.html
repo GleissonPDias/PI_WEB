@@ -27,10 +27,27 @@
     <input type="text" id="ativar" placeholder="Nome ou Codigo.:">
     <button type="button" onclick="ativar()">Ativar</button>
 
-    <h2>Editar Categorias</h2>
+    <h2>Editar Categorias e Sub Categorias</h2>
     <select id="categoriaslocalizadas">
 
     </select>
+
+    <select id="subcategoriaslocalizadas">
+
+    </select>
+
+    <br><br>
+
+    <input type="text" id="renomearCategoria" placeholder="Categoria:">
+    <button type="button" onclick="renomearCategoria()">Renomear Categoria</button>
+    <button type="button" onclick="apagarCategoria()">Apagar Categoria</button>
+
+    <br><br>
+
+    <input type="text" id="renomearSubCategoria" placeholder="Sub Categoria:">
+    <button type="button" onclick="renomearSubCategoria()">Renomear Sub Categoria</button>
+    <button type="button" onclick="apagarSubCategoria()">Apagar Sub Categoria</button>
+    <br><br>
 
 
     <h2>Editar Produtos</h2>
@@ -69,19 +86,12 @@
             </select>
 
             <label for="subcategoria-adicionar">Adicionar</label>
-            <input type="text" id="subcategoria-adicionar" name="novasubcategoria" placeholder="Nova categoria">
+            <input type="text" id="subcategoria-adicionar" name="novasubcategoria" placeholder="Nova Sub Categoria">
             <button type="button" onclick="adicionarsubcategoria()">Adicionar nova subcategoria</button>
             <br>
 
-            <label for="editarsubcategoria">Editar Sub Categoria</label>
-            <select id="editarsubcategoria" name="editarsubcategoria">
 
-            </select>
 
-            <label for="subcategoria-adicionar">Adicionar</label>
-            <input type="text" id="editarsubcategoria" name="editarnovasubcategoria" placeholder="Nova categoria">
-            <button type="button" onclick="editarsubcategoria()">editar nova subcategoria</button>
-            <br>
 
 
 
@@ -105,8 +115,13 @@
             <button type="button" onclick="addproduto()">Adicionar novo produto</button>
             <button type="reset">Limpar</button>
         </form>
+
+
     </div>
 
+    <label for="imagemcarrossel">Imagem do Carrossel: </label>
+    <input type="text" id="imagemcarrossel">
+    <button onclick="addimagemcarrossel()">Adicionar imagem</button>
 </body>
 
 </html>

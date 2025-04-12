@@ -3,6 +3,7 @@ header('Content-Type: text/html; charset=utf-8');
 require('conexao_db.php');
 
 $categoria = $_POST['categoria'] ?? '';
+$subcategoria = $_POST['subcategoria'] ?? '';
 $preco = $_POST['preco'] ?? '';
 $nome = $_POST['nome'] ?? '';
 $pesquisa = $_POST['pesquisa'] ?? '';
@@ -12,8 +13,13 @@ $params = [];
 
 // Filtro por categoria
 if (!empty($categoria)) {
-    $sql .= " AND id_sub_categoria = :categoria";
+    $sql .= " AND id_categoria = :categoria";
     $params[':categoria'] = $categoria;
+}
+
+if (!empty($subcategoria)) {
+    $sql .= " AND id_sub_categoria = :subcategoria";
+    $params[':subcategoria'] = $subcategoria;
 }
 
 // Filtro por nome (pesquisa por nome parcial)
@@ -39,7 +45,7 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 if (count($produtos) > 0) {
     foreach ($produtos as $produto) {
-        echo '<figure id="' . $produto['id_sub_categoria'] . '">';
+        echo '<figure id="' . $produto['id_categoria'] . '">';
 
         // Corrigido o erro de aspas dentro do echo
         echo '<img src="' . $produto['imagem'] . '">';
