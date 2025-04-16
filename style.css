@@ -431,12 +431,14 @@ p {
 
 
 
+
 }
 
 .slides {
     width: 400%;
     height: auto;
     display: flex;
+
 }
 
 .slides input {
@@ -461,6 +463,9 @@ p {
     margin-top: -40px;
     display: flex;
     justify-content: center;
+    z-index: 50;
+    background-color: rgba(0, 0, 0, 0.2);
+    /* temporário */
 
 }
 

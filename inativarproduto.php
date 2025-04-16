@@ -18,16 +18,16 @@ $response = [
 if (!empty($nomeproduto)) {
     try {
         // Insere o produto no banco
-        $stmt = $pdo->prepare('DELETE FROM produto WHERE nome = :nomeproduto OR id = :id');
+        $stmt = $pdo->prepare('UPDATE produto SET inativo = NULL WHERE nome = :nomeproduto OR id = :id');
         $stmt->execute([
             ':nomeproduto' => $nomeproduto,
             ':id' => $id
         ]);
 
         $response['success'] = true;
-        $response['message'] = 'Produto DELETADO com sucesso!';
+        $response['message'] = 'Produto inativado com sucesso!';
     } catch (PDOException $e) {
-        $response['message'] = "Erro ao DELETAR produto: " . $e->getMessage();
+        $response['message'] = "Erro ao inativar produto: " . $e->getMessage();
     }
 } else {
     $response['message'] = 'Erro: Produto não encontrado.';

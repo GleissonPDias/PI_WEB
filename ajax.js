@@ -38,8 +38,10 @@ const produtosnapagina = () => {
         });
 };
 
+
+
 const carrosselnapagina = () => {
-    let oncarrossel = document.getElementById('slide1');
+    let oncarrossel = document.getElementById('slider');
 
 
     fetch('carrossel.php')
@@ -76,6 +78,7 @@ const categorias = () => {
 }
 categorias();
 
+
 const subcategorias = () => {
     let subcategorias = document.getElementById('subcategoria');
     let subcategoriasfiltro = document.getElementById('subcategoriaFiltro');
@@ -89,6 +92,45 @@ const subcategorias = () => {
         })
 }
 subcategorias();
+
+const imagemcarrossel = () => {
+    let imgcarrossel = document.getElementById('selecionarcarrossel');
+
+
+    fetch('selecionarcarrossel.php')
+        .then(response => response.text())
+        .then(data => {
+            imgcarrossel.innerHTML = data;
+        })
+}
+imagemcarrossel();
+
+const addimagemcarrossel = () => {
+    const imagem = document.getElementById('imagemcarrossel').value;
+    const id = document.getElementById('selecionarcarrossel').value;
+
+    fetch('addimagemcarrossel.php', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `imagem=${encodeURIComponent(imagem)}&id=${id}`
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert(data.message);
+            } else {
+                alert(data.message);
+            }
+        })
+        .catch(message => {
+            console.error('Erro:', message);
+        });
+};
+
+
+
 
 const adicionarcategoria = () => {
     const novacategoria = document.getElementById('categoria-adicionar').value.toUpperCase();
@@ -224,8 +266,33 @@ const processarProduto = (inputId, url) => {
 
 };
 
-const inativar = () => processarProduto("inativar", "excluirproduto.php");
+const inativar = () => processarProduto("inativar", "inativarproduto.php");
 const ativar = () => processarProduto("ativar", "ativarprodutos.php");
+
+const apagarProduto = () => {
+    const produto = document.getElementById('apagarProdutos').value;
+    document.getElementById('apagarProdutos').value = "";
+
+
+    fetch("excluirproduto.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `nomeproduto=${encodeURIComponent(produto)}&id=${encodeURIComponent(produto)}`
+    })
+        .then(response => response.json())
+        .then(data => {
+            ativos();
+            inativos();
+            alert(data.message);
+            if (data.success) {
+            }
+            console.log("Resposta do servidor:", data);
+        })
+        .catch(error => console.error('Erro:', error));
+
+};
 
 
 const loceditar = () => {
@@ -386,28 +453,4 @@ const apagarCategorias = (categoria, url) => {
 const apagarCategoria = () => apagarCategorias('categoriaslocalizadas', 'excluircategoria.php');
 const apagarSubCategoria = () => apagarCategorias('subcategoriaslocalizadas', 'excluirsubcategoria.php');
 
-
-const addimagemcarrossel = () => {
-    const slide1 = document.getElementById('imagemcarrossel').value;
-    console.log(slide1)
-
-    fetch('addimagemcarrossel.php', {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body: `imagem=${encodeURIComponent(slide1)}`
-    })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                alert(data.message);
-            } else {
-                alert(data.message);
-            }
-        })
-        .catch(message => {
-            console.error('Erro:', message);
-        });
-};
 

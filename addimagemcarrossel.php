@@ -16,15 +16,17 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 // Verificar os dados recebidos
 
 $imagem = rtrim($_POST['imagem'] ?? '', '}');
+$id = $_POST['id'] ?? '';
 $response = [];
 
 
 if (!empty($imagem)) {
     try {
             // Insere o produto no banco
-        $stmt = $pdo->prepare('INSERT INTO produto (carrossel) VALUES (:imagem)');
+        $stmt = $pdo->prepare('UPDATE carrossel set imagem = :imagem where id = :id');
         $stmt->execute([
-            ':imagem' => $imagem
+            ':imagem' => $imagem,
+            ':id' => $id
         ]);
             
         $response['success'] = true;
