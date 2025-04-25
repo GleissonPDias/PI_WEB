@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 ':nome' => $usuario,  // Substitui :nome pelo valor da variável $usuario
                 ':email' => $email,   // Substitui :email pelo valor da variável $email
                 ':senha' => $senha,   // Substitui :senha pelo hash da senha
-                ':papel' => 'admin'   // Define o papel como "admin"
+                ':papel' => 'usuario'   // Define o papel como "admin"
             ]);
 
             echo "Usuário cadastrado com sucesso!"; // Exibe mensagem de sucesso
@@ -56,32 +56,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-
-<!-- Exibir itens do banco de dados no site php -->
- 
-<!DOCTYPE html> 
-<html> 
-  <head> 
-    <meta charset="UTF-8"> 
-    <title>Tutorial</title> 
-  </head> 
-  <body> 
-    <table border="1"> 
-      <tr> 
-        <td>Código</td> 
-        <td>Nome</td> 
-        <td>E-mail</td> 
-        <td>Data de Cadastro</td> 
-        <td>Ação</td> 
-      </tr> 
-      <?php foreach ($dados as $usuario) { ?> 
-      <tr> 
-        <td><?php echo $usuario['id']; ?></td> <!-- Supondo que 'id' seja o código do usuário -->
-        <td><?php echo $usuario['username']; ?></td>
-        <td><?php echo $usuario['email']; ?></td> 
-        <td><!-- Aqui você pode adicionar ações como editar ou excluir --></td>
-      </tr> 
-      <?php } ?> 
-    </table> 
-  </body> 
-</html>

@@ -37,10 +37,21 @@ try {
         $response['message'] = 'Produto já existe!';
     }
     // Inserir produto, caso os dados do produto sejam válidos
-    elseif (!empty($nomeproduto) && !empty($preco) && !empty($descricao) && !empty($estoque) && !empty($categoria) && !empty($subcategoria) && !empty($imagem)) {
+    elseif (
+        $nomeproduto !== '' &&
+        $preco !== '' &&
+        $descricao !== '' &&
+        $estoque !== '' &&  // agora 0 será aceito
+        $categoria !== '' &&
+        $subcategoria !== '' &&
+        $imagem !== ''
+    )  {
         try {
-            // Insere o produto no banco
-            $stmt = $pdo->prepare('INSERT INTO produto (nome, preco, descricao, estoque, id_categoria, id_sub_categoria, imagem) VALUES (:nomeproduto, :preco, :descricao, :estoque, :categoria, :subcategoria, :imagem)');
+            if($estoque > 0){
+                $stmt = $pdo->prepare('INSERT INTO produto (nome, preco, descricao, estoque, id_categoria, id_sub_categoria, imagem, inativo) VALUES (:nomeproduto, :preco, :descricao, :estoque, :categoria, :subcategoria, :imagem, 1)');
+            }else{
+                $stmt = $pdo->prepare('INSERT INTO produto (nome, preco, descricao, estoque, id_categoria, id_sub_categoria, imagem, inativo) VALUES (:nomeproduto, :preco, :descricao, :estoque, :categoria, :subcategoria, :imagem, NULL)');
+            }
             $stmt->execute([
                 ':nomeproduto' => $nomeproduto,
                 ':preco' => $preco,
