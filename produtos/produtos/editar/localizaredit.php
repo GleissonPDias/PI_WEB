@@ -1,8 +1,7 @@
 <?php
 header('Content-Type: text/html');
-require("conexao_db.php");
+require("../../../conexao_db.php");
 
-$nome = $_POST['nome'] ?? '';
 $id = $_POST['id'] ?? '';
 
 try {
@@ -27,9 +26,9 @@ try {
 
 try {
 
-    $stmt = $pdo->prepare('SELECT * FROM produto WHERE nome = :nome OR id = :id');
+    $stmt = $pdo->prepare('SELECT * FROM produto WHERE id = :id');
     $stmt->execute([
-        ':nome' => $nome,
+
         ':id' => $id
     ]);
     $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -42,6 +41,7 @@ if (empty($dados)) {
     echo "Nenhum produto encontrado.";
 } else {
     foreach ($dados as $produtos) {
+        echo '<table border="1">';
         echo '<br>';
         echo '<label for="idedit">Cod. Produto</label>';
         echo '<input id="idedit" type="text" value="' . $produtos['id'] . '" disabled> <br>';  // Adicionei disabled para não permitir editar o ID
@@ -83,16 +83,13 @@ if (empty($dados)) {
 
         echo '<label for="imagemedit">Imagem</label>';
         echo '<input id="imagemedit" type="text" value="' . $produtos['imagem'] . '"><br> <br> <br>';
+
+        echo "<td><button type='button' onclick='editar(" . $produtos['id'] . "); '>Confirmar Edição</button></td>";
+        echo "<td><button type='button' onclick='cancelaredicao()'>Cancelar Edição</button></td>";
+
+
+        echo '</table>';
     
-        echo '<section class="cardv" > ';
-        echo '<h2>Produto Selecionado: </h2>';
-        echo '<figure id="' . $produtos['id_sub_categoria'] . '">';
-        echo '<img src="' . $produtos['imagem'] . '">';
-        echo '<h1 class="nameP">' . $produtos['nome'] . '</h1>';
-        echo '<button type="button" class="price">R$ ' . number_format($produtos['preco'], 2, ',', '.') . '</button>';
-        echo '<p>' . $produtos['descricao'] . '</p>';
-        echo "</figure>";
-        echo "</section>";
     
     
     }

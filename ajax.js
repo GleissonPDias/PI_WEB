@@ -217,7 +217,7 @@ const addproduto = () => {
 
     console.log("Dados enviados:", { nomeproduto, preco, descricao, estoque, categoria, subcategoria, imagem });
 
-    fetch("cadastroproduto.php", {
+    fetch("/PI/produtos/cadastro/cadastroproduto.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
@@ -251,7 +251,7 @@ const processarProduto = (inputId, url) => {
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
         },
-        body: `nomeproduto=${encodeURIComponent(valor)}&id=${encodeURIComponent(valor)}`
+        body: `id=${encodeURIComponent(valor)}`
     })
         .then(response => response.json())
         .then(data => {
@@ -266,8 +266,8 @@ const processarProduto = (inputId, url) => {
 
 };
 
-const inativar = () => processarProduto("inativar", "inativarproduto.php");
-const ativar = () => processarProduto("ativar", "ativarprodutos.php");
+const inativar = () => processarProduto("produtos.html/inativar", "inativos/inativarproduto.php");
+const ativar = () => processarProduto("produtos.html/ativar", "ativos/ativarprodutos.php");
 
 const apagarProduto = () => {
     const produto = document.getElementById('apagarProdutos').value;
@@ -295,18 +295,16 @@ const apagarProduto = () => {
 };
 
 
-const loceditar = () => {
+const loceditar = (id) => {
 
-    let prodedit = document.getElementById('prodedit').value;
-    document.getElementById('prodedit').value = '';
     prodloc = document.getElementById('prodlocalizado');
 
-    fetch("localizaredit.php", {
+    fetch("editar/localizaredit.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
         },
-        body: `nome=${encodeURIComponent(prodedit)}&id=${encodeURIComponent(prodedit)}`
+        body: `id=${encodeURIComponent(id)}`
     })
         .then(response => {
             if (!response.ok) {

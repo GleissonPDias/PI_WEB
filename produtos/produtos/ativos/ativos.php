@@ -1,21 +1,19 @@
 <?php
 header('Content-Type: text/html');
-require("conexao_db.php");
+require("../../../conexao_db.php");
 
 try {
     $stmt = $pdo->prepare('SELECT * FROM produto WHERE inativo IS NOT NULL');
     $stmt->execute();
     $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 } catch (PDOException $e) {
-    // Se houver erro na consulta SQL, exibe a mensagem de erro
     die("Erro na consulta: " . $e->getMessage());
 }
 
 if (empty($dados)) {
     echo "Nenhum produto encontrado.";
 } else {
-    echo "<table border='1'>";  // Adicionando borda à tabela para visualização
+    echo "<table border='1'>";
     echo "<thead>";
     echo "<tr>";
     echo "<th>Cod.Produto</th>";
@@ -25,11 +23,14 @@ if (empty($dados)) {
     echo "<th>Categoria</th>";
     echo "<th>Sub Categoria</th>";
     echo "<th>Estoque</th>";
+    echo "<th>Inativar</th>"; 
+    echo "<th>Editar</th>";
+    echo "<th>Apagar</th>";
     echo "</tr>";
     echo "</thead>";
     echo "<tbody>";
 
-    foreach ($dados as $produtos) { 
+    foreach ($dados as $produtos) {
         echo "<tr>";
         echo "<td>" . $produtos['id'] . "</td>";
         echo "<td>" . $produtos['nome'] . "</td>";
@@ -38,6 +39,13 @@ if (empty($dados)) {
         echo "<td>" . $produtos['id_categoria'] . "</td>";
         echo "<td>" . $produtos['id_sub_categoria'] . "</td>";
         echo "<td>" . $produtos['estoque'] . "</td>";
+
+        // Só botão de ativar aqui
+        echo "<td><button type='button' onclick='inativar(" . $produtos['id'] . ")'>Inativar</button></td>";
+
+        // Futuramente, botões de editar e apagar:
+        echo "<td><button type='button' onclick='loceditar(" . $produtos['id'] . ")'>Editar</button></td>";
+        echo "<td><button type='button' onclick='apagarProduto(" . $produtos['id'] . ")'>Apagar</button></td>";
         echo "</tr>";
     }
 

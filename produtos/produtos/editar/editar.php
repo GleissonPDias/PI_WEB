@@ -1,6 +1,6 @@
 <?php
 
-require("conexao_db.php");
+require("../../../conexao_db.php");
 
 header('Content-Type: application/json');
 
