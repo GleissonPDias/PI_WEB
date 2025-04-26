@@ -32,7 +32,7 @@ if (isset($_SESSION['mensagem_sucesso'])) {
 </head>
 <body>
     <h2>Cadastro</h2>
-    <form action="processa_cadastro.php" method="post" onsubmit="return validarFormulario();">
+    <form >
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" required>
         <p>
@@ -40,6 +40,11 @@ if (isset($_SESSION['mensagem_sucesso'])) {
         <label for="email">E-mail:</label>
         <input type="email" id="email" name="email" required>
         <p>
+
+        <label for="telefone">Telefone:</label>
+        <input type="text" id="telefone" name="telefone" required>
+        <p>
+
 
         <label for="senha">Senha:</label>
         <input type="password" id="senha" name="senha" placeholder="Mínimo de 6 caracteres" required>
@@ -49,7 +54,7 @@ if (isset($_SESSION['mensagem_sucesso'])) {
         <input type="password" id="confirmar_senha" name="confirmar_senha" placeholder="Mínimo de 6 caracteres" required>
         <p>
 
-        <input type="submit" value="Criar usuário">
+        <button type="button" onclick="addusuario()" >Cadastrar</button>
     </form>
 
     <p><a href="login.php">Voltar</a></p>

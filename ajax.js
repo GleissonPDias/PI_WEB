@@ -454,3 +454,36 @@ const apagarCategoria = () => apagarCategorias('categoriaslocalizadas', 'excluir
 const apagarSubCategoria = () => apagarCategorias('subcategoriaslocalizadas', 'excluirsubcategoria.php');
 
 
+
+
+
+const addusuario = () => {
+    const email = document.getElementById("email").value.toUpperCase();
+    const nome = document.getElementById("nome").value.toUpperCase();
+    const telefone = document.getElementById("telefone").value;
+    const senha = document.getElementById("senha").value;
+    const confirmar_senha = document.getElementById("confirmar_senha").value;
+
+    document.getElementById("email").value = "";
+    document.getElementById("nome").value = "";
+    document.getElementById("telefone").value = "";
+    document.getElementById("senha").value = "";
+    document.getElementById("confirmar_senha").value = "";
+
+
+    fetch("cadastrousuario.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `email=${encodeURIComponent(email)}&nome=${encodeURIComponent(nome)}&telefone=${encodeURIComponent(telefone)}&senha=${encodeURIComponent(senha)}}`
+    })
+        .then(response => response.json())  // Processa a resposta como JSON
+        .then(data => {
+            console.log("Resposta do servidor:", data);
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+        });
+
+};
