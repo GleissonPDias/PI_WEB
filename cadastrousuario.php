@@ -24,8 +24,9 @@ try {
 // Verifica se o formulário foi enviado (método POST)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtém os dados enviados pelo formulário
-    $usuario = $_POST['username']; // Nome do usuário
-    $email = $_POST['email']; // E-mail do usuário
+    $email = $_POST['email'];
+    $nome = $_POST['nome'];
+    $telefone = $_POST['telefone'];
 
     // Verifica se a senha e a confirmação da senha são iguais
     if ($_POST['password'] === $_POST['confirm-password']) {
@@ -34,14 +35,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         try {
             // Prepara a consulta para inserir um novo usuário no banco de dados
-            $stmt = $pdo->prepare('INSERT INTO usuarios (username, email, senha, tipo) VALUES (:nome, :email, :senha, :papel)');
+            $stmt = $pdo->prepare('INSERT INTO usuarios (cpf, email, nome, senha_hash, telefone, tipo) VALUES (:cpf, :email, :nome, :senha, :telefone, :tipo)');
 
             // Executa a inserção passando os valores para os placeholders
             $stmt->execute([
-                ':nome' => $usuario,  // Substitui :nome pelo valor da variável $usuario
+                ':nome' => $nome,  // Substitui :nome pelo valor da variável $usuario
                 ':email' => $email,   // Substitui :email pelo valor da variável $email
                 ':senha' => $senha,   // Substitui :senha pelo hash da senha
-                ':papel' => 'usuario'   // Define o papel como "admin"
+                ':telefone' => $telefone,
+                ':tipo' => 'usuario'
             ]);
 
             echo "Usuário cadastrado com sucesso!"; // Exibe mensagem de sucesso
