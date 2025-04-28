@@ -3,7 +3,7 @@
 
 header('Content-Type: application/json');
 
-require("../../conexao_db.php");
+require("../../../conexao_db.php");
 
 $novasubcategoria = $_POST['novasubcategoria'] ?? '';
 $id_categoria = $_POST['id_categoria'] ?? '';

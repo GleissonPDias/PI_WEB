@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json');
-require("conexao_db.php");
+require("../../../conexao_db.php");
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode([

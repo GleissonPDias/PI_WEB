@@ -1,9 +1,10 @@
 <?php
 header('Content-Type: text/html');
-require("conexao_db.php");
+require("../../../conexao_db.php");
+
 
 try {
-    $stmt = $pdo->prepare('SELECT id from carrossel');
+    $stmt = $pdo->prepare('SELECT nome from categoria');
     $stmt->execute();
     $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -16,8 +17,8 @@ if (empty($dados)) {
     echo "Nenhum produto encontrado.";
 } else {
 
-    foreach ($dados as $carrossel) { 
-        echo '<option value="' . $carrossel['id'] . '">' . $carrossel['id'] . '</option>';
+    foreach ($dados as $produtos) { 
+        echo '<option value="' . $produtos['nome'] . '">' . $produtos['nome'] . '</option>';
 
 }}
 

@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
-require('conexao_db.php');
+require("../../../conexao_db.php");
 
 $categoria = $_POST['categoria'] ?? '';
 $subcategoria = $_POST['subcategoria'] ?? '';

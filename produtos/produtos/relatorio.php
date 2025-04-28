@@ -2,7 +2,7 @@
 
 
 
-require("conexao_db.php");
+require("../../conexao_db.php");
 
 try {
     $stmt = $pdo->prepare('SELECT * FROM produto');

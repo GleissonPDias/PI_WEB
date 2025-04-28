@@ -2,7 +2,7 @@
 
 header('Content-Type: application/json');
 
-require("../../conexao_db.php");
+require("../../../conexao_db.php");
 $novacategoria = $_POST['novacategoria'] ?? '';
 
 $response = [];
