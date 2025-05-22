@@ -38,10 +38,8 @@ if (!isset($_SESSION['admin'])) {
     <p>Escolha uma das opções abaixo:</p>
 
     <div class="menu">
-        <a href="telacadastro.html">Gerenciar Estoque</a>
-        <a href="configuracoes.php">Alterar Configurações</a>
-        <a href="relatorios.php">Visualizar Relatórios</a>
-        <a href="cadastro_produto.php">Cadastrar Novo Produto</a>
+        <a href="/pi_web/produtos/produtos/produtos.html">Gerenciar Produtos</a>
+        <a href="usuarios.php">Visualizar Usuários</a>
         <a href="logout.php">Sair</a>
     </div>
 </body>
