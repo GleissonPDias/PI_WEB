@@ -7,7 +7,7 @@ if (isset($_SESSION['admin'])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,22 +30,22 @@ if (isset($_SESSION['admin'])) {
                 <form class="form" method="POST" action="processa_cadastro.php">
                     <label class="label-input" for="">
                         <i class="fa-solid fa-user"></i>
-                        <input type="text" name="nome" placeholder=" Nome" required>
+                        <input type="text" name="cnome" placeholder=" Nome" required>
                     </label>
 
                     <label class="label-input" for="">
                         <i class="fa-solid fa-envelope"></i>
-                        <input type="email" name="email" placeholder=" Digite email" required>
+                        <input type="email" name="cemail" placeholder=" Digite email" required>
                     </label>
 
                     <label class="label-input" for="">
                         <i class="fa-solid fa-phone"></i>
-                        <input type="text" name="telefone" placeholder=" Digite telefone">
+                        <input type="text" name="ctelefone" placeholder=" Digite telefone">
                     </label>
                     
                     <label class="label-input" for="">
                         <i class="fa-solid fa-lock icones"></i>
-                        <input type="password" name="senha" placeholder=" Digite sua senha" required>
+                        <input type="password" name="csenha" placeholder=" Digite sua senha" required>
                     </label>
 
                     <label class="label-input" for="">
@@ -98,12 +98,12 @@ if (isset($_SESSION['admin'])) {
                 <form class="form" method="POST" action="processa_login.php">
                     <label class="label-input" for="">
                         <i class="fa-regular fa-envelope icones"></i>
-                        <input type="text" name="usuario" placeholder=" Usuário" required>
+                        <input type="text" id="nome" name="nome" placeholder=" Usuário" required>
                     </label>
 
                     <label class="label-input" for="">
                         <i class="fa-solid fa-lock icones"></i>
-                        <input type="password" name="senha" placeholder=" Senha" required>
+                        <input type="password" id="senha" name="senha" placeholder=" Senha" required>
                     </label>
                     
                     <a class="password" href="redefinir_senha.php">Esqueceu sua senha</a>

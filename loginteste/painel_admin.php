@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['admin'])) {
+if (!isset($_SESSION['admin_logado'])) {
     header("Location: login.php");
     exit();
 }
@@ -39,7 +39,7 @@ if (!isset($_SESSION['admin'])) {
 
     <div class="menu">
         <a href="/pi_web/produtos/produtos/produtos.html">Gerenciar Produtos</a>
-        <a href="cadastrousuario.php">Visualizar Usuários</a>
+        <a href="listar_administrador.php">Visualizar Usuários</a>
         <a href="logout.php">Sair</a>
     </div>
 </body>

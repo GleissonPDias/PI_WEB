@@ -1,60 +1,71 @@
 <?php
 
-require("conexao_db.php");
+require("/pi_web/conexao_db.php");
 
-try {
-    // Consulta todos os usuários do banco de dados
-    $user_bd = $pdo->query('SELECT * FROM usuarios');
+header('Content-Type: application/json');
 
-    // Obtém os dados retornados pela consulta e os armazena em um array associativo
-    $dados = $user_bd->fetchAll(PDO::FETCH_ASSOC);
-
-    // Verifica se existem usuários cadastrados
-    if ($dados) {
-        echo '<pre>'; // Formata a saída no navegador
-        print_r($dados); // Exibe os dados do banco de forma legível
-    } else {
-        echo "Nenhum usuário encontrado."; // Exibe mensagem caso o banco esteja vazio
-    }
-} catch (PDOException $e) {
-    // Se houver erro na consulta SQL, exibe a mensagem de erro
-    die("Erro na consulta: " . $e->getMessage());
+// Verificar se a requisição é POST
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    echo json_encode([
+        'success' => false,
+        'message' => 'Método de requisição inválido. Utilize POST.'
+    ]);
+    exit;
 }
 
-// Verifica se o formulário foi enviado (método POST)
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtém os dados enviados pelo formulário
-    $email = $_POST['email'];
-    $nome = $_POST['nome'];
-    $telefone = $_POST['telefone'];
+// Verificar os dados recebidos
+$nome = $_POST['nome'] ?? '';
+$email = $_POST['email'] ?? '';
+$senha = $_POST['senha'] ?? '';
+$confirmar_senha = $_POST['confirmar_senha'] ?? '';
 
-    // Verifica se a senha e a confirmação da senha são iguais
-    if ($_POST['password'] === $_POST['confirm-password']) {
-        // Criptografa a senha usando BCRYPT para segurança
-        $senha = password_hash($_POST['password'], PASSWORD_BCRYPT);
+$response = [];
 
-        try {
-            // Prepara a consulta para inserir um novo usuário no banco de dados
-            $stmt = $pdo->prepare('INSERT INTO usuarios (cpf, email, nome, senha_hash, telefone, tipo) VALUES (:cpf, :email, :nome, :senha, :telefone, :tipo)');
+// Validações básicas
+if (empty($nome)) {
+    $response['message'] = 'O campo nome é obrigatório.';
+} elseif (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $response['message'] = 'Por favor, insira um e-mail válido.';
+} elseif (empty($senha) || strlen($senha) < 6) {
+    $response['message'] = 'A senha deve ter pelo menos 6 caracteres.';
+} elseif ($senha !== $confirmar_senha) {
+    $response['message'] = 'As senhas não coincidem.';
+} else {
+    // Verificar se o usuário já existe
+    try {
+        $stmt = $pdo->prepare('SELECT email FROM usuarios WHERE email = :email');
+        $stmt->execute([
+            ':email' => $email
+        ]);
+        $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-            // Executa a inserção passando os valores para os placeholders
-            $stmt->execute([
-                ':nome' => $nome,  // Substitui :nome pelo valor da variável $usuario
-                ':email' => $email,   // Substitui :email pelo valor da variável $email
-                ':senha' => $senha,   // Substitui :senha pelo hash da senha
-                ':telefone' => $telefone,
-                ':tipo' => 'usuario'
-            ]);
-
-            echo "Usuário cadastrado com sucesso!"; // Exibe mensagem de sucesso
-        } catch (PDOException $e) {
-            // Se houver erro na inserção, exibe a mensagem de erro
-            die("Erro ao cadastrar usuário: " . $e->getMessage());
+        if (count($dados) > 0) {
+            $response['message'] = 'Este e-mail já está cadastrado!';
+        } else {
+            // Inserir usuário
+            try {
+                // Hash da senha (usando bcrypt)
+                $senha_hash = password_hash($senha, PASSWORD_BCRYPT);
+                
+                $stmt = $pdo->prepare('INSERT INTO usuarios (nome, email, senha, data_criacao) 
+                                      VALUES (:nome, :email, :senha, CURRENT_TIMESTAMP)');
+                $stmt->execute([
+                    ':nome' => $nome,
+                    ':email' => $email,
+                    ':senha' => $senha_hash
+                ]);
+                
+                $response['success'] = true;
+                $response['message'] = 'Usuário cadastrado com sucesso!';
+            } catch (PDOException $e) {
+                $response['message'] = "Erro ao cadastrar usuário: " . $e->getMessage();
+            }
         }
-    } else {
-        // Se as senhas não forem iguais, exibe uma mensagem de erro
-        echo "As senhas não coincidem!";
+    } catch (PDOException $e) {
+        $response['message'] = "Erro ao verificar usuário: " . $e->getMessage();
     }
 }
-?>
 
+// Retornar a resposta em formato JSON
+echo json_encode($response);
+?>
