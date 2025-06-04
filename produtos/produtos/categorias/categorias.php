@@ -15,7 +15,7 @@ try {
 if (empty($dados)) {
     echo "Nenhum produto encontrado.";
 } else {
-    echo "<table border='1'>";
+    echo "<table border='1' class='tabela_produtos'>";
     echo "<thead>";
     echo "<tr>";
     echo "<th>Cod.</th>";
@@ -29,8 +29,8 @@ if (empty($dados)) {
         echo "<tr>";
         echo "<td id=" . $produtos['id'] . " >" . $produtos['id'] . "</td>";
         echo "<td>" . $produtos['nome'] . "</td>";
-        echo "<td><button type='button' onclick='editarCategoria(\"" . $produtos['id'] . "\", \"" . addslashes($produtos['nome']) . "\")'>Editar</button></td>";
-        echo "<td><button type='button' onclick='apagarCategoria(\"" . $produtos['nome'] . "\")'>Apagar</button></td>";
+        echo "<td><button type='button' class='btn_acao editar' onclick='editarCategoria(\"" . $produtos['id'] . "\", \"" . addslashes($produtos['nome']) . "\")'>Editar</button></td>";
+        echo "<td><button type='button' class='btn_acao apagar' onclick='apagarCategoria(\"" . $produtos['nome'] . "\")'>Apagar</button></td>";
         
         echo "</tr>";
 
