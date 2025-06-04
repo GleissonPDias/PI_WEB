@@ -13,7 +13,7 @@ try {
 if (empty($dados)) {
     echo "Nenhum produto encontrado.";
 } else {
-    echo "<table border='1'>";
+    echo "<table border='1' class='tabela_produtos'>";
     echo "<thead>";
     echo "<tr>";
     echo "<th>Cod.Produto</th>";
@@ -40,12 +40,10 @@ if (empty($dados)) {
         echo "<td>" . $produtos['id_sub_categoria'] . "</td>";
         echo "<td>" . $produtos['estoque'] . "</td>";
 
-        // Só botão de ativar aqui
-        echo "<td><button type='button' onclick='inativar(" . $produtos['id'] . ")'>Inativar</button></td>";
+        echo "<td><button type='button' class='btn_acao inativar' onclick='inativar(" . $produtos['id'] . ")'>Inativar</button></td>";
+        echo "<td><button type='button' class='btn_acao editar' onclick='loceditar(" . $produtos['id'] . ")'>Editar</button></td>";
+        echo "<td><button type='button' class='btn_acao apagar' onclick='apagarProduto(" . $produtos['id'] . ")'>Apagar</button></td>";
 
-        // Futuramente, botões de editar e apagar:
-        echo "<td><button type='button' onclick='loceditar(" . $produtos['id'] . ")'>Editar</button></td>";
-        echo "<td><button type='button' onclick='apagarProduto(" . $produtos['id'] . ")'>Apagar</button></td>";
         echo "</tr>";
     }
 
