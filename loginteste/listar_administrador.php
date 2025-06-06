@@ -28,8 +28,13 @@ try {
     <style>
     body {
         font-family: 'Arial', sans-serif;
+        background-color:aliceblue;
     }
-
+  
+    .tudo{
+            padding: 5px 8px;
+    margin: auto;
+    }
     table {
         width: 100%;
         border: 3px solid #007BFF;
@@ -101,7 +106,10 @@ try {
     }
 
     .add-btn:hover {
-        background-color: #0b7dda;
+        background-color:rgb(240, 244, 247);
+        transition:1s;
+        color:#2196F3;
+        border:2px solid #2196F3 ;
     }
 </style>
 
@@ -113,9 +121,11 @@ function confirmDeletion() {
 
 </head>
 <body>
+    <div class="tudo">
 <h2>Administradores Cadastrados</h2>
 <!-- Botão para adicionar novo administrador -->
 <a href="cadastrar_administrador.php" class="add-btn">Adicionar Novo Administrador</a>
+</div>
 
 <table class="tabela_produtos">
     <tr>
