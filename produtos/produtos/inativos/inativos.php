@@ -15,7 +15,7 @@ try {
 if (empty($dados)) {
     echo "Nenhum produto encontrado.";
 } else {
-    echo "<table border='1'>";
+    echo "<table border='1' class='tabela_produtos'>";
     echo "<thead>";
     echo "<tr>";
     echo "<th>Cod.Produto</th>";
@@ -43,11 +43,11 @@ if (empty($dados)) {
         echo "<td>" . $produtos['estoque'] . "</td>";
 
         // Só botão de ativar aqui
-        echo "<td><button type='button' onclick='ativar(" . $produtos['id'] . ")'>ativar</button></td>";
+        echo "<td><button type='button' class='btn_acao inativar' onclick='ativar(" . $produtos['id'] . ")'>ativar</button></td>";
 
         // Futuramente, botões de editar e apagar:
-        echo "<td><button type='button' onclick='loceditar(" . $produtos['id'] . ")'>Editar</button></td>";
-        echo "<td><button type='button' onclick='apagarProduto(" . $produtos['id'] . ")'>Apagar</button></td>";
+        echo "<td><button type='button' class='btn_acao editar' onclick='loceditar(" . $produtos['id'] . ")'>Editar</button></td>";
+        echo "<td><button type='button' class='btn_acao apagar' onclick='apagarProduto(" . $produtos['id'] . ")'>Apagar</button></td>";
         echo "</tr>";
     }
 

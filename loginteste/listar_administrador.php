@@ -32,19 +32,33 @@ try {
 
     table {
         width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
+        border: 3px solid #007BFF;
+         border-radius: 5px;
+        padding: 8px;
+        color:white;
+
     }
+    .tabela_produtos  tr:nth-child(even) {
+  background-color: #002a46;
+}
+
+.tabela_produtos  tr:nth-child(odd) {
+  background-color: #007BFF;
+}
 
     th, td {
         padding: 10px;
-        border: 1px solid #ddd;
+        border: none;
         text-align: left;
+        text-align: center;
+        padding: 8px;
+        
     }
 
     th {
-        background-color: #4CAF50;
-        color: white;
+        background-color:rgb(214, 214, 214);
+        color: black;
+        border:none;
     }
 
     tr:hover {
@@ -59,6 +73,7 @@ try {
         text-decoration: none;
         display: inline-block;
         margin-right: 5px;
+        border-radius:4px;
     }
 
     .action-btn:hover {
@@ -77,7 +92,7 @@ try {
     .add-btn {
         background-color: #2196F3;
         color: white;
-        padding: 8px 16px;
+        padding: 5px 10px;
         border: none;
         border-radius: 4px;
         text-decoration: none;
@@ -102,7 +117,7 @@ function confirmDeletion() {
 <!-- Botão para adicionar novo administrador -->
 <a href="cadastrar_administrador.php" class="add-btn">Adicionar Novo Administrador</a>
 
-<table>
+<table class="tabela_produtos">
     <tr>
         <th>ID</th>
         <th>Nome</th>

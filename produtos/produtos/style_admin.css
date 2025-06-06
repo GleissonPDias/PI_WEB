@@ -89,6 +89,11 @@ header {
   color: white;
 }
 
+.btn_relatorio:hover{
+  transition: 1s;
+  background-color: white;
+  color: #4CAF50 ;
+}
 main.conteudo {
   background-color: #e9efff;
   padding: 18px 24px;
@@ -157,3 +162,8 @@ main.conteudo {
 .tabela_produtos tbody tr td button.btn_acao.apagar {
   background-color: #ff4444;
 }
+
+
+
+
+

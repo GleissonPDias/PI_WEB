@@ -10,20 +10,41 @@ if(isset($_SESSION['mensagem_erro'])) {
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="style.login.css">
     <title>Login do Administrador</title>
 </head>
-<body>
+<body class="body">
+    <div id="login">
+
+            <div class="card">
+
+                <div class="card-header">
+
     <h2>Login do Administrador</h2>
     <form action="processa_login.php" method="post">
+        </div>
+
+                <div class="card-content">
+
+                    <div class="card-content-area">
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" required>
+         </div>
+
+                    <div class="card-content-area">
         
-        <p>
         <label for="senha">Senha:</label>
         <input type="password" id="senha" name="senha" required>
+        </div>
+
+                </div>
+        <div class="card-footer">
+        <input  type="submit" value="Entrar" class="submit">
+        </div>
         
-        <p>
-        <input type="submit" value="Entrar">
     </form>
+</div>
+
+        </div>
 </body>
 </html>
