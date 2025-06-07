@@ -51,9 +51,127 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Editar Administrador</title>
+    <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+body.body { 
+    background-color: #f0f4f8; 
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-start; 
+    padding: 50px 20px; 
+    min-height: 100vh;  
+}
+.card {
+
+    background-color: #E9efff;
+
+    padding: 40px;
+
+    border-radius: 8px;
+
+    width:280px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.97);
+
+}
+ 
+.card, form {
+   background-color: #E9efff; 
+    padding: 30px;
+    border-radius: 10px; 
+    width: 100%;
+    max-width: 550px; 
+}
+
+h1 {
+    color: #2c3e50; 
+    margin-bottom: 30px;
+    text-align: center; 
+    font-size: 2.2em; /* Tamanho do título */
+    font-weight: 700;
+
+}
+
+
+form label {
+  font-weight: 600; 
+    color: #4a6c89; 
+    margin-bottom: 5px; 
+    margin-top: 15px;
+    display: block; 
+    text-align: left;
+ }
+
+form input[type="text"],
+form input[type="password"] {
+      width: 100%;
+    padding: 12px 4px;
+    border: 1px solid #cce7ed;
+    border-radius: 8px; 
+    font-size: 1.05em;
+    color: #333;
+    outline: none; 
+    transition: border-color 0.2s ease, box-shadow 0.2s ease; /* Transição suave */
+    margin-bottom: 0; 
+}
+
+
+form input[type="text"]:focus,
+form input[type="password"]:focus {
+    border-color: #007bff; /* Borda azul ao focar */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Sombra suave ao focar */
+}
+
+form p {
+   margin-top: 26px;
+    margin-bottom: -16px;
+    line-height: 1;
+}
+
+
+
+form label[for="ativo"] {
+    display: inline-block; 
+    margin-top: 0; 
+    margin-left: 20px; 
+    margin-right: 8px; 
+    vertical-align: middle;
+    color: #666;
+}
+
+
+form button[type="submit"] {
+     padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.05em;
+    cursor: pointer; 
+    font-weight: 600;
+    margin-top: 30px; 
+    background-color: #007bff; 
+    color: white;
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+
+form button[type="submit"]:hover {
+     background-color:white; 
+    transform: translateY(-2px);
+    border:2px solid #007bff;
+    color:#007bff;
+}
+
+    </style>
 </head>
-<body>
-<h2>Editar Administrador</h2>
+<body class="body">
+    <div class="card">
+<h1>Editar Administrador</h1>
 <form action="" method="post" enctype="multipart/form-data"> 
 
     <label for="nome">Nome:</label>
@@ -74,5 +192,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <p></p>
     <a href="listar_administrador.php">Voltar à Lista de Administradores</a>
+</div>
 </body>
 </html>
