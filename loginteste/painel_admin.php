@@ -14,13 +14,14 @@ if (!isset($_SESSION['admin_logado'])) {
         body {
             font-family: Arial, sans-serif;
             padding: 30px;
-                background-color: #454d6b;
+            background-color: #f0f4f8; 
         }
         .card{
-        background: rgba(19, 19, 19, 0.3);
+        background-color: #E9efff; 
          padding: 40px;
          align-items: center;
-         border: 2px solid black;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.97);
+        border-radius:8px; 
     }
         
         .menu {
@@ -30,7 +31,7 @@ if (!isset($_SESSION['admin_logado'])) {
         }
         .menu a {
             padding: 10px;
-            background-color: #a13854;
+            background-color: #007bff;
             color: white;
             text-decoration: none;
             width: 200px;
@@ -39,11 +40,15 @@ if (!isset($_SESSION['admin_logado'])) {
         .menu a:hover {
            transition: 1s;
     background-color: #e1e1e1;
-    color: #a13854;
+    color: #007bff;
+    border:2px solid #007bff;
 }
        .card .h2 .p{
-        color: white;
+        color: black;
        } 
+       .card h2, p{
+        color: black;
+       }
     </style>
 </head>
 <body>
