@@ -342,6 +342,93 @@ form > button[onclick="addproduto()"] {
 form > button[type="reset"] {
     margin-right: 0; /* Remove margem direita do último botão */
 }
+/*Carrossel*/
+
+/* Reset básico para remover margens e paddings padrão do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+
+
+#selecionarcarrossel {
+    background-color: #e8f0fe; 
+    padding: 30px;
+    border-radius: 10px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px; 
+    display: flex; 
+    flex-wrap: wrap; 
+    align-items: center; 
+    gap: 15px; 
+}
+
+/* Estilo para as labels */
+#selecionarcarrossel label {
+    font-weight: 600; 
+    color: #444; 
+    white-space: nowrap;
+}
+
+#selecionarcarrossel select {
+    padding: 10px 12px;
+    font-size: 1em;
+    color: #333;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease; 
+    min-width: 60px; 
+    text-align: center;
+    margin-bottom:15px;
+}
+
+#selecionarcarrossel select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+
+#selecionarcarrossel input[type="text"][id="imagemcarrossel"] {
+    flex: 1; 
+    padding: 10px 12px;
+    border: 1px solid #cddde6; 
+    border-radius: 6px; 
+    font-size: 1em;
+    color: #333;
+    outline: none; 
+    min-width: 150px;
+}
+
+#selecionarcarrossel input[type="text"][id="imagemcarrossel"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+#selecionarcarrossel button {
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: 600;
+    background-color: #007bff; 
+    color: white;
+    margin-left: 30px;
+}
+
+#selecionarcarrossel button:hover {
+    background-color:white ;
+    transform: translateY(-1px); /* Pequeno efeito de elevação */
+    transition:1s;
+    border:2px solid #007BFF;
+    color: #007BFF;
+
+}
+
+
+
 
 
 
