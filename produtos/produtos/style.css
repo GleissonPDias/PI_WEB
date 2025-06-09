@@ -1,243 +1,222 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 @font-face {
-    font-family: 'marguerite';
-    src: url('marguerite.ttf') format('truetype');
+  font-family: "marguerite";
+  src: url("marguerite.ttf") format("truetype");
 }
 
 /* menu lateral */
 
 body {
-    height: 100vh;
-    background: rgb(105, 26, 26);
-    overflow-x: hidden;
-    color: #E2A42D;
+  height: 100vh;
+  background: rgb(105, 26, 26);
+  overflow-x: hidden;
+  color: #e2a42d;
 }
 
 footer {
-    background: black;
-    text-align: center;
-    font-size: 20px;
-    color: white;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    z-index: 2;
-    position: absolute;
-    width: 100%;
-
+  background: black;
+  text-align: center;
+  font-size: 20px;
+  color: white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  z-index: 2;
+  position: absolute;
+  width: 100%;
 }
 
 nav.menu-lateral {
-
-    width: 74px;
-    height: 100%;
-    background-color: black;
-    padding: 40px 0 40px 1%;
-    box-shadow: 3px 0 0 rgb(105, 26, 26);
-    position: fixed;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    transition: 0.6s;
-    z-index: 1;
+  width: 74px;
+  height: 100%;
+  background-color: black;
+  padding: 40px 0 40px 1%;
+  box-shadow: 3px 0 0 rgb(105, 26, 26);
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  transition: 0.6s;
+  z-index: 1;
 }
 
 nav.menu-lateral.expandir {
-    width: 300px;
-
+  width: 300px;
 }
 
 .btn-expandir {
-    width: 100%;
-    padding-left: 10px;
+  width: 100%;
+  padding-left: 10px;
 }
 
-
-.btn-expandir>i {
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-
+.btn-expandir > i {
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
 }
 
 ul {
-    height: 100%;
-    list-style-type: none;
-
+  height: 100%;
+  list-style-type: none;
 }
 
 ul li.item-menu {
-    transition: 0.2s;
+  transition: 0.2s;
 }
 
 ul li.ativo {
-    background-color: rgb(105, 26, 26);
-
+  background-color: rgb(105, 26, 26);
 }
 
 ul li.item-menu:hover {
-    background: rgb(105, 26, 26);
-
+  background: rgb(105, 26, 26);
 }
 
 ul li.item-menu:hover a {
-    color: #ffa600;
+  color: #ffa600;
 }
 
 ul li.item-menu a {
-    color: white;
-    text-decoration: none;
-    font-size: 30px;
-    padding: 20px 4%;
-    display: flex;
-    margin-bottom: 40px;
-    line-height: 40px;
-    margin-left: 5px;
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+  padding: 20px 4%;
+  display: flex;
+  margin-bottom: 40px;
+  line-height: 40px;
+  margin-left: 5px;
 }
 
 ul li.item-menu a .txt-link {
-    margin-left: 80px;
-    transition: .8s;
-    opacity: 0;
+  margin-left: 80px;
+  transition: 0.8s;
+  opacity: 0;
 }
 
 nav.menu-lateral.expandir .txt-link {
-    margin-left: 30px;
-    opacity: 1;
+  margin-left: 30px;
+  opacity: 1;
 }
 
-ul li.item-menu a .icon>i {
-    font-size: 35px;
-
+ul li.item-menu a .icon > i {
+  font-size: 35px;
 }
 
 .zap {
-    color: rgb(4, 161, 4) !important;
+  color: rgb(4, 161, 4) !important;
 }
-
-
 
 /* header */
 
 header {
-
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.959), rgb(109, 5, 5));
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.959),
+    rgb(109, 5, 5)
+  );
 }
 
 header section figure img {
-    height: 600px;
-    width: 1000px;
-    margin-left: 500px;
+  height: 600px;
+  width: 1000px;
+  margin-left: 500px;
 }
-
 
 .subcard ul {
-
-    background-image: linear-gradient(to right, #ffefd5, #bc8f8f);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+  background-image: linear-gradient(to right, #ffefd5, #bc8f8f);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
-
-
 .btn-subcard {
-    font-size: 50px;
-    text-decoration: none;
-    color: black;
+  font-size: 50px;
+  text-decoration: none;
+  color: black;
 }
 
 .subcard a:hover {
-    color: #ffa602;
+  color: #ffa602;
 
-    text-decoration: underline;
-
+  text-decoration: underline;
 }
 
 #subtitle {
-    margin-left: 160px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-
+  margin-left: 160px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .btn-filtro {
-    margin-left: 1000px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  margin-left: 1000px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .filtros {
-    margin-left: 500px;
-    display: flex;
+  margin-left: 500px;
+  display: flex;
 }
 
 /* cardapio de fato */
 
-
-
-
-
-
 .card {
-    background-image: linear-gradient(to right, #ffefd5, #c7aaaa);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+  background-image: linear-gradient(to right, #ffefd5, #c7aaaa);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 .cardv {
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    max-width: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  max-width: 500px;
 }
 
 .card figure {
-    margin-top: 30px;
-    margin-left: 100px;
-    border-radius: 5%;
-    width: 500px;
-    background: rgba(255, 255, 255, 0.623);
-    height: 350px;
-    margin-bottom: 80px;
-    overflow: hidden;
-    position: relative;
+  margin-top: 30px;
+  margin-left: 100px;
+  border-radius: 5%;
+  width: 500px;
+  background: rgba(255, 255, 255, 0.623);
+  height: 350px;
+  margin-bottom: 80px;
+  overflow: hidden;
+  position: relative;
 }
 
 .cardv figure {
-
-
-    border-radius: 5%;
-    width: 500px;
-    background: rgba(255, 255, 255, 0.623);
-    height: 350px;
-    margin-bottom: 30px;
-    overflow: hidden;
-    position: relative;
+  border-radius: 5%;
+  width: 500px;
+  background: rgba(255, 255, 255, 0.623);
+  height: 350px;
+  margin-bottom: 30px;
+  overflow: hidden;
+  position: relative;
 }
 
 .card figure:hover,
 .cardv figure:hover {
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
-    height: 380px;
-    transition-duration: 0.4s;
-    text-align: center;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  height: 380px;
+  transition-duration: 0.4s;
+  text-align: center;
 }
 
 .card img,
 .cardv img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .card figure:hover .nameP,
@@ -246,398 +225,361 @@ header section figure img {
 .cardv figure:hover .nameP,
 .cardv figure:hover .price,
 .cardv figure:hover p {
-    opacity: 100%;
-    /* Fica visível quando hover */
+  opacity: 100%;
+  /* Fica visível quando hover */
 }
 
 .card figure:hover .price,
 .cardv figure:hover .price {
-    opacity: 1 !important;
+  opacity: 1 !important;
 }
 
-
-
 .nameP {
-    position: absolute;
-    top: -200px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    /* Fundo semi-transparente */
-    color: #E2A42D;
-    /* Cor do texto */
-    display: flex;
-    /* Usado para centralizar o texto */
-    flex-direction: column;
-    /* Organiza o texto em coluna */
-    align-items: center;
-    /* Centraliza horizontalmente */
-    justify-content: center;
-    /* Centraliza verticalmente */
-    opacity: 0;
-    font-size: 40px;
+  position: absolute;
+  top: -200px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  /* Fundo semi-transparente */
+  color: #e2a42d;
+  /* Cor do texto */
+  display: flex;
+  /* Usado para centralizar o texto */
+  flex-direction: column;
+  /* Organiza o texto em coluna */
+  align-items: center;
+  /* Centraliza horizontalmente */
+  justify-content: center;
+  /* Centraliza verticalmente */
+  opacity: 0;
+  font-size: 40px;
 
-
-    transition: opacity 0.3s;
-
+  transition: opacity 0.3s;
 }
 
 .card figure:hover .nameP,
 .card figure:hover .price,
 .card figure:hover p {
-    opacity: 100%;
-    /* Fica visível quando hover */
+  opacity: 100%;
+  /* Fica visível quando hover */
 }
 
 p {
-    position: absolute;
-    /* Fica sobre a imagem */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: -50px;
-    /* Fundo semi-transparente */
-    color: white;
-    /* Cor do texto */
-    display: flex;
-    /* Usado para centralizar o texto */
-    flex-direction: column;
-    /* Organiza o texto em coluna */
-    align-items: center;
-    /* Centraliza horizontalmente */
-    justify-content: center;
-    /* Centraliza verticalmente */
-    opacity: 0;
-    transition: opacity 0.3s;
-    padding: 30px;
-
+  position: absolute;
+  /* Fica sobre a imagem */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -50px;
+  /* Fundo semi-transparente */
+  color: white;
+  /* Cor do texto */
+  display: flex;
+  /* Usado para centralizar o texto */
+  flex-direction: column;
+  /* Organiza o texto em coluna */
+  align-items: center;
+  /* Centraliza horizontalmente */
+  justify-content: center;
+  /* Centraliza verticalmente */
+  opacity: 0;
+  transition: opacity 0.3s;
+  padding: 30px;
 }
 
 .price {
-    background: #E2A42D;
-    position: absolute;
-    top: 300px;
-    left: 0px;
-    right: 0;
-    bottom: 0;
-    border: none;
-    /* Fundo semi-transparente */
-    color: black;
-    /* Cor do texto */
-    display: flex;
-    /* Usado para centralizar o texto */
-    flex-direction: column;
-    /* Organiza o texto em coluna */
-    align-items: center;
-    /* Centraliza horizontalmente */
-    justify-content: center;
-    /* Centraliza verticalmente */
-    text-align: center;
-    opacity: 0;
-    font-size: 40px;
-    max-width: 100% !important;
-    size: 10px;
+  background: #e2a42d;
+  position: absolute;
+  top: 300px;
+  left: 0px;
+  right: 0;
+  bottom: 0;
+  border: none;
+  /* Fundo semi-transparente */
+  color: black;
+  /* Cor do texto */
+  display: flex;
+  /* Usado para centralizar o texto */
+  flex-direction: column;
+  /* Organiza o texto em coluna */
+  align-items: center;
+  /* Centraliza horizontalmente */
+  justify-content: center;
+  /* Centraliza verticalmente */
+  text-align: center;
+  opacity: 0;
+  font-size: 40px;
+  max-width: 100% !important;
+  size: 10px;
 
-
-    transition: opacity 0.3s;
+  transition: opacity 0.3s;
 }
 
 .price:hover {
-    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
-    background-color: #ffa600;
-
-
-
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  background-color: #ffa600;
 }
 
 .card figure:hover .price {
-    opacity: 1 !important;
+  opacity: 1 !important;
 }
-
-
-
-
-
 
 /* contatos */
 
 #contact h1 {
-    font-size: 50px;
-    color: white;
-    padding: 20px;
+  font-size: 50px;
+  color: white;
+  padding: 20px;
 }
 
 #contact h2 {
-    font-size: 35px;
-    padding-top: 20px;
-    color: white;
-    padding-bottom: 20px;
-
+  font-size: 35px;
+  padding-top: 20px;
+  color: white;
+  padding-bottom: 20px;
 }
 
 #contact h3 {
-    font-size: 28px;
-    padding-bottom: 15px;
-    inline-size: none;
+  font-size: 28px;
+  padding-bottom: 15px;
+  inline-size: none;
 }
 
 #contact h4 {
-    padding: 3px;
+  padding: 3px;
 }
 
 #contact {
-    text-align: center;
-    background: rgb(105, 26, 26);
-    color: white;
-
+  text-align: center;
+  background: rgb(105, 26, 26);
+  color: white;
 }
 
 #contact a {
-    font-size: 50px;
-    padding: 10px;
-    color: white;
+  font-size: 50px;
+  padding: 10px;
+  color: white;
 }
-
-
-
-
 
 /* mapas */
 
 #map {
-    padding: 30px;
-    padding-bottom: 40px;
-    text-align: center;
-
-
+  padding: 30px;
+  padding-bottom: 40px;
+  text-align: center;
 }
 
 #map a {
-    font-size: 0;
-
+  font-size: 0;
 }
-
-
-
 
 /* carrossel */
 .slider {
-    margin: 0 auto;
-    width: 100%;
-    height: auto;
-    padding: 0;
-
-
-
-
-
+  margin: 0 auto;
+  width: 100%;
+  height: auto;
+  padding: 0;
 }
 
 .slides {
-    width: 400%;
-    height: auto;
-    display: flex;
-
+  width: 400%;
+  height: auto;
+  display: flex;
 }
 
 .slides input {
-    display: none;
+  display: none;
 }
 
 .slide {
-    width: 25%;
-    position: relative;
-    transition: 2s;
+  width: 25%;
+  position: relative;
+  transition: 2s;
 }
 
 .slide img {
-    width: 100%;
-
-
+  width: 100%;
 }
 
 .navigation-manual {
-    position: absolute;
-    width: 100%;
-    margin-top: -40px;
-    display: flex;
-    justify-content: center;
-    z-index: 50;
-    background-color: rgba(0, 0, 0, 0.2);
-    /* temporário */
-
+  position: absolute;
+  width: 100%;
+  margin-top: -40px;
+  display: flex;
+  justify-content: center;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.2);
+  /* temporário */
 }
 
 .manual-btn {
-    border: 2px solid #fff;
-    padding: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 1s;
+  border: 2px solid #fff;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
 }
 
 .manual-btn:not(:last-child) {
-    margin-right: 40px;
+  margin-right: 40px;
 }
 
 .manual-btn:hover {
-    background-color: #fff;
+  background-color: #fff;
 }
 
-#radio1:checked~.first {
-    margin-left: 0;
+#radio1:checked ~ .first {
+  margin-left: 0;
 }
 
-#radio2:checked~.first {
-    margin-left: -25%;
+#radio2:checked ~ .first {
+  margin-left: -25%;
 }
 
-#radio3:checked~.first {
-    margin-left: -50%;
+#radio3:checked ~ .first {
+  margin-left: -50%;
 }
 
-#radio4:checked~.first {
-    margin-left: -75%;
+#radio4:checked ~ .first {
+  margin-left: -75%;
 }
 
 .navigation-auto div {
-    border: 2px solid#20a6ff;
-    padding: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 1s;
+  border: 2px solid#20a6ff;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
 }
 
 .navigation-auto {
-    position: absolute;
-    width: 800%;
-    margin-top: 360px;
-    display: flex;
-    justify-content: center;
+  position: absolute;
+  width: 800%;
+  margin-top: 360px;
+  display: flex;
+  justify-content: center;
 }
 
 .navigation-auto div:not(:last-child) {
-    margin-right: 40px;
+  margin-right: 40px;
 }
 
-#radio1:checked~.navigation-auto .auto-btn1 {
-    background-color: #fff;
+#radio1:checked ~ .navigation-auto .auto-btn1 {
+  background-color: #fff;
 }
 
-#radio2:checked~.navigation-auto .auto-btn2 {
-    background-color: #fff;
+#radio2:checked ~ .navigation-auto .auto-btn2 {
+  background-color: #fff;
 }
 
-#radio3:checked~.navigation-auto .auto-btn4 {
-    background-color: #fff;
+#radio3:checked ~ .navigation-auto .auto-btn4 {
+  background-color: #fff;
 }
 
-#radio4:checked~.navigation-auto .auto-btn1 {
-    background-color: #fff;
+#radio4:checked ~ .navigation-auto .auto-btn1 {
+  background-color: #fff;
 }
-
-
-
-
-
 
 /* CADASTRO */
 
-
 .cadcontainer {
-    display: flex;
+  display: flex;
 }
 
 .produtoscadastrados {
-    color: rgb(255, 255, 255);
-
+  color: rgb(255, 255, 255);
 }
 
 .adicaoprodutos {
-    border: 10px solid rgb(48, 44, 44);
-    background: white;
-
-    width: 50vw;
-    margin-left: 50vw;
-    display: flex;
-    justify-content: center;
-
-
+  border: 10px solid rgb(48, 44, 44);
+  background: white;
+  width: 50vw;
+  margin-left: 50vw;
+  display: flex;
+  justify-content: center;
 }
 
+#filtros {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+  gap: 5px;
+}
 
+#filtros select,
+#filtros input,
+#filtros button {
+  background-color: white;
+  border: 1px solid rgb(189, 55, 14);
+  border-radius: 4px;
+  display: inline-block;
+  padding: 0.5em 3.5em 0.5em 1em;
+}
 
+#filtros button:hover {
+  background: #e2a42d;
+}
 
-
-
-
-
-
-
-
-
-
+#subtitle1 {
+  margin-left: 100px;
+}
 
 @media screen and (max-width: 768px) {
-    nav.menu-lateral {
-        width: 60px;
+  nav.menu-lateral {
+    width: 60px;
+  }
 
-    }
+  ul li.item-menu {
+    font-size: 30px;
+    size: 10px;
+  }
 
-    ul li.item-menu {
-        font-size: 30px;
-        size: 10px;
-    }
+  nav.menu-lateral {
+    width: 50px;
+  }
 
-    nav.menu-lateral {
-        width: 50px;
+  nav.menu-lateral.expandir {
+    width: 100px;
+  }
 
-    }
+  .card figure {
+    width: 150px;
+    height: 250px;
+    margin-left: 30px;
+    margin-right: 10px;
+    text-align: center;
+  }
 
-    nav.menu-lateral.expandir {
-        width: 100px;
+  .card img {
+    width: 150px;
+    height: 100px;
+  }
 
-    }
+  .nameP {
+    font-size: 15px;
+  }
 
-    .card figure {
-        width: 150px;
-        height: 250px;
-        margin-left: 30px;
-        margin-right: 10px;
-        text-align: center;
-    }
+  p {
+    font-size: 10px;
+    padding: 5px;
+    color: #502314;
+  }
 
-    .card img {
-        width: 150px;
-        height: 100px;
-    }
-
-    .nameP {
-        font-size: 15px;
-
-    }
-
-    p {
-        font-size: 10px;
-        padding: 5px;
-        color: #502314;
-    }
-
-    .price {
-        background-color: #04AA6D;
-        border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        align-items: center;
-        cursor: pointer;
-        border-radius: 8px;
-        transition-duration: 0.4s;
-    }
-
-
+  .price {
+    background-color: #04aa6d;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+  }
 }

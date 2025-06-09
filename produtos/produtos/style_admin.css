@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
 @font-face {
-  font-family: 'marguerite';
-  src: url('marguerite.ttf') format('truetype');
+  font-family: "marguerite";
+  src: url("marguerite.ttf") format("truetype");
 }
 
 * {
@@ -18,8 +18,9 @@ body {
 }
 
 header {
-  font-family: 'Open Sans', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  
+  font-family: "Open Sans", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    sans-serif;
+
   background-color: #002a46;
   display: flex;
   justify-content: space-between;
@@ -40,7 +41,7 @@ header {
   padding: 4px 8px;
   border: none;
   border-radius: 4px;
-  background-color: #007BFF;
+  background-color: #007bff;
 
   color: white;
   font-weight: 700;
@@ -61,10 +62,10 @@ header {
 }
 
 .acoes .btn_link {
-  border: 1px solid #007BFF;
+  border: 1px solid #007bff;
   border-radius: 4px;
   padding: 4px 8px;
-  color: #007BFF;
+  color: #007bff;
 
   text-decoration: none;
 }
@@ -74,25 +75,25 @@ header {
   -webkit-transition: background-color 300ms linear;
   -ms-transition: background-color 300ms linear;
   transition: background-color 300ms linear;
+  color: white;
 }
-
 
 .acoes .btn_relatorio {
   border: none;
   border-radius: 4px;
   padding: 4px 8px;
-  color: #007BFF;
+  color: #007bff;
 
   text-decoration: none;
-  
-  background: #4CAF50;
+
+  background: #4caf50;
   color: white;
 }
 
-.btn_relatorio:hover{
+.btn_relatorio:hover {
   transition: 1s;
   background-color: white;
-  color: #4CAF50 ;
+  color: #4caf50;
 }
 main.conteudo {
   background-color: #e9efff;
@@ -101,13 +102,14 @@ main.conteudo {
 }
 
 .tabela_produtos {
-  border: 3px solid #007BFF;
+  border: 3px solid #007bff;
   border-radius: 5px;
   padding: 8px;
 }
 
 .tabela_produtos thead {
-  font-family: 'Open Sans', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Open Sans", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    sans-serif;
   margin-bottom: 12px;
 }
 
@@ -117,7 +119,8 @@ main.conteudo {
 }
 
 .tabela_produtos tbody {
-  font-family: 'Open Sans', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Open Sans", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    sans-serif;
   color: white;
 }
 
@@ -126,7 +129,7 @@ main.conteudo {
 }
 
 .tabela_produtos tbody tr:nth-child(odd) {
-  background-color: #007BFF;
+  background-color: #007bff;
 }
 
 .tabela_produtos thead tr th,
@@ -143,7 +146,7 @@ main.conteudo {
   padding: 4px 8px;
   border: none;
   border-radius: 4px;
-  background-color: #007BFF;
+  background-color: #007bff;
 
   color: white;
   font-weight: 700;
@@ -163,276 +166,288 @@ main.conteudo {
   background-color: #ff4444;
 }
 
-
-
-
-
-
-
 form input,
 form input,
 form select,
 form textarea {
-    width: 100%; 
-    padding: 12px 15px;
-    border: 1px solid #cce7ed; 
-    border-radius: 8px; 
-    font-size: 1.05em; 
-    color: #333;
-    outline: none; 
-    transition: border-color 0.2s ease, box-shadow 0.2s ease; /* Transição suave ao focar */
-    margin-bottom: 0; 
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #cce7ed;
+  border-radius: 8px;
+  font-size: 1.05em;
+  color: #333;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease; /* Transição suave ao focar */
+  margin-bottom: 0;
 }
 
 form input:focus,
 form input:focus,
 form select:focus,
 form textarea:focus {
-    border-color: #007bff; /* Borda azul ao focar */
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Sombra suave ao focar */
+  border-color: #007bff; /* Borda azul ao focar */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Sombra suave ao focar */
 }
 
 form input::placeholder,
 form textarea::placeholder {
-    color: #aab8c2; 
+  color: #aab8c2;
 }
 
 form textarea {
-    resize: vertical; 
-    min-height: 100px; 
+  resize: vertical;
+  min-height: 100px;
 }
-
 
 form label[for="categoria"] + select,
 form label[for="subcategoria"] + select {
-    margin-bottom: 15px; 
+  margin-bottom: 15px;
 }
-
 
 form label[for="categoria-adicionar"],
 form label[for="subcategoria-adicionar"] {
-    display: inline-block; /* Permite que fique na mesma linha que o input */
-    margin-top: 0;
-    margin-right: 10px; /* Espaço entre 'Adicionar' label e input */
-    vertical-align: middle; /* Alinha verticalmente */
-    font-weight: normal; /* "Adicionar" não precisa ser negrito forte */
-    color: #666;
+  display: inline-block; /* Permite que fique na mesma linha que o input */
+  margin-top: 0;
+  margin-right: 10px; /* Espaço entre 'Adicionar' label e input */
+  vertical-align: middle; /* Alinha verticalmente */
+  font-weight: normal; /* "Adicionar" não precisa ser negrito forte */
+  color: #666;
 }
-
 
 form select + label[for="categoria-adicionar"] + input[type="text"],
 form select + label[for="categoria-adicionar"] + input[type="text"] + button,
 form select + label[for="subcategoria-adicionar"] + input[type="text"],
-form select + label[for="subcategoria-adicionar"] + input[type="text"] + button {
-    margin-bottom: 15px; /* Espaço para a próxima linha */
-    display: inline-block; /* Tentar mantê-los na mesma linha */
-    vertical-align: middle; /* Alinha verticalmente */
+form
+  select
+  + label[for="subcategoria-adicionar"]
+  + input[type="text"]
+  + button {
+  margin-bottom: 15px; /* Espaço para a próxima linha */
+  display: inline-block; /* Tentar mantê-los na mesma linha */
+  vertical-align: middle; /* Alinha verticalmente */
 }
 
 form label[for="categoria-adicionar"] + input[type="text"],
 form label[for="subcategoria-adicionar"] + input[type="text"] {
-    flex-grow: 1; 
-    min-width: 180px; 
-    margin-right: 10px;
-    margin-bottom: 0; 
+  flex-grow: 1;
+  min-width: 180px;
+  margin-right: 10px;
+  margin-bottom: 0;
 }
 
-
 form br {
-    margin-top: 10px; 
-    display: block; 
-    height: 0;
-    visibility: hidden; 
+  margin-top: 10px;
+  display: block;
+  height: 0;
+  visibility: hidden;
 }
 
 form br + br {
-    margin-top: 25px;
+  margin-top: 25px;
 }
 
-
 /* Estilo dos botões */
-.btn-action { 
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.0em;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Transições suaves */
-    font-weight: 600;
+.btn-action {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transições suaves */
+  font-weight: 600;
 }
 
 /* Botões de adicionar categoria/subcategoria */
-form button[onclick^="adicionar"] { 
-    background-color: #007BFF; 
-    color: white;
-    padding: 8px 15px; 
-    font-size: 0.9em;
-    margin-bottom: 0; 
-    border: none;
-    display: inline-block;
-    vertical-align: middle;
-    border-radius: 8px;
-     cursor: pointer;
+form button[onclick^="adicionar"] {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 15px;
+  font-size: 0.9em;
+  margin-bottom: 0;
+  border: none;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 form button[onclick^="adicionar"]:hover {
-    background-color: #fafcfb; 
-    color: #007BFF;
-    transition: 1s;
-    border: 2px solid #007BfF ;
+  background-color: #fafcfb;
+  color: #007bff;
+  transition: 1s;
+  border: 2px solid #007bff;
 }
 
-
 form button[onclick="addproduto()"] {
- background-color: #007BFF; 
-    color: white;
-    cursor: pointer;
-    border: none;
-    padding: 8px 15px; 
-    font-size: 0.9em;
-    margin-bottom: 0; 
-    display: inline-block;
-    vertical-align: middle;
-    border-radius: 8px;
-    margin-top:15px
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border: none;
+  padding: 8px 15px;
+  font-size: 0.9em;
+  margin-bottom: 0;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 8px;
+  margin-top: 15px;
 }
 
 form button[onclick="addproduto()"]:hover {
-    background-color:#fafcfb; 
-    border-radius: 8px;
-    color: #007BFF;
-    transition: 1s;
-    border: 2px solid #007BfF ;
-    border: 2px solid #007BfF ;
+  background-color: #fafcfb;
+  border-radius: 8px;
+  color: #007bff;
+  transition: 1s;
+  border: 2px solid #007bff;
+  border: 2px solid #007bff;
 }
 
 form button[type="reset"] {
-     background-color: #007BFF; 
-    color: white;
-    padding: 8px 15px;
-    border: none; 
-    font-size: 0.9em;
-    margin-bottom: 0; 
-    display: inline-block;
-    vertical-align: middle;
-    border-radius: 8px;
-    margin-top:15px ;
-    cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  font-size: 0.9em;
+  margin-bottom: 0;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 8px;
+  margin-top: 15px;
+  cursor: pointer;
 }
-
 
 form button[type="reset"]:hover {
-   background-color:#fafcfb; 
-    border-radius: 8px;
-    color: #007BFF;
-    transition: 1s;
-    border: 2px solid #007BfF ;
+  background-color: #fafcfb;
+  border-radius: 8px;
+  color: #007bff;
+  transition: 1s;
+  border: 2px solid #007bff;
 }
 
-
-form > button[type="button"], 
-form > button[type="reset"] { 
-    display: inline-block;
-    
+form > button[type="button"],
+form > button[type="reset"] {
+  display: inline-block;
 }
 
 form > button[onclick="addproduto()"] {
-    margin-left: auto; /* Empurra o primeiro botão para a direita */
+  margin-left: auto; /* Empurra o primeiro botão para a direita */
 }
 form > button[type="reset"] {
-    margin-right: 0; /* Remove margem direita do último botão */
+  margin-right: 0; /* Remove margem direita do último botão */
 }
 /*Carrossel*/
 
 /* Reset básico para remover margens e paddings padrão do navegador */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
-
 #selecionarcarrossel {
-    background-color: #e8f0fe; 
-    padding: 30px;
-    border-radius: 10px; 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 800px; 
-    display: flex; 
-    flex-wrap: wrap; 
-    align-items: center; 
-    gap: 15px; 
+  background-color: #e8f0fe;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px;
 }
 
 /* Estilo para as labels */
 #selecionarcarrossel label {
-    font-weight: 600; 
-    color: #444; 
-    white-space: nowrap;
+  font-weight: 600;
+  color: #444;
+  white-space: nowrap;
 }
 
 #selecionarcarrossel select {
-    padding: 10px 12px;
-    font-size: 1em;
-    color: #333;
-    outline: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease; 
-    min-width: 60px; 
-    text-align: center;
-    margin-bottom:15px;
+  padding: 10px 12px;
+  font-size: 1em;
+  color: #333;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  min-width: 60px;
+  text-align: center;
+  margin-bottom: 15px;
 }
 
 #selecionarcarrossel select:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
 }
 
-
 #selecionarcarrossel input[type="text"][id="imagemcarrossel"] {
-    flex: 1; 
-    padding: 10px 12px;
-    border: 1px solid #cddde6; 
-    border-radius: 6px; 
-    font-size: 1em;
-    color: #333;
-    outline: none; 
-    min-width: 150px;
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #cddde6;
+  border-radius: 6px;
+  font-size: 1em;
+  color: #333;
+  outline: none;
+  min-width: 150px;
 }
 
 #selecionarcarrossel input[type="text"][id="imagemcarrossel"]:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
 }
 
 #selecionarcarrossel button {
-    padding: 10px 18px;
-    border-radius: 6px;
-    font-size: 1em;
-    cursor: pointer;
-    font-weight: 600;
-    background-color: #007bff; 
-    color: white;
-    margin-left: 30px;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 1em;
+  cursor: pointer;
+  font-weight: 600;
+  background-color: #007bff;
+  color: white;
+  margin-left: 30px;
 }
 
 #selecionarcarrossel button:hover {
-    background-color:white ;
-    transform: translateY(-1px); /* Pequeno efeito de elevação */
-    transition:1s;
-    border:2px solid #007BFF;
-    color: #007BFF;
-
+  background-color: white;
+  transform: translateY(-1px); /* Pequeno efeito de elevação */
+  transition: 1s;
+  border: 2px solid #007bff;
+  color: #007bff;
 }
 
+#prodlocalizado textarea,
+#prodlocalizado select,
+#prodlocalizado input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #cce7ed;
+  border-radius: 8px;
+  font-size: 1.05em;
+  color: #333;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  margin-bottom: 0;
+}
 
+#prodlocalizado button {
+  margin-left: 20px;
+  background-color: #007bff;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  font-size: 0.9em;
+  margin-bottom: 0;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 8px;
+  margin-top: 5px;
+  cursor: pointer;
+}
 
-
-
-
-
-
-
-
+#prodlocalizado button:hover {
+  background-color: #fafcfb;
+  border-radius: 8px;
+  color: #007bff;
+  transition: 1s;
+  border: 2px solid #007bff;
+}

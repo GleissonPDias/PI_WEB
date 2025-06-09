@@ -84,8 +84,8 @@ if (empty($dados)) {
         echo '<label for="imagemedit">Imagem</label>';
         echo '<input id="imagemedit" type="text" value="' . $produtos['imagem'] . '"><br> <br> <br>';
 
-        echo "<td><button type='button' onclick='editar(" . $produtos['id'] . "); '>Confirmar Edição</button></td>";
-        echo "<td><button type='button' onclick='cancelaredicao()'>Cancelar Edição</button></td>";
+        echo "<button type='button' onclick='editar(" . $produtos['id'] . "); '>Confirmar Edição</button>";
+        echo "<button type='button' onclick='cancelaredicao()'>Cancelar Edição</button>";
 
 
         echo '</table>';

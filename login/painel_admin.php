@@ -57,7 +57,7 @@ if (!isset($_SESSION['admin_logado'])) {
     <p>Escolha uma das opções abaixo:</p>
 
     <div class="menu">
-        <a href="/pi_web/produtos/produtos/produtos.html">Gerenciar Produtos</a>
+        <a href="/pi/produtos/produtos/produtos.html">Gerenciar Produtos</a>
         <a href="listar_administrador.php">Visualizar Usuários</a>
         <a href="logout.php">Sair</a>
     </div>

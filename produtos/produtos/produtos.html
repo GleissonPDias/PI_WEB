@@ -1,132 +1,178 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="./produtos.js" defer></script>
-    <link rel="stylesheet" href="style_admin.css">
+    <link rel="stylesheet" href="style_admin.css" />
     <title>PRODUTOS</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <nav class="menu_produtos">
-            <ul>
-                <li><button class="btn_pagina" onclick="mostrar('ativos')">Produtos Ativos</button></li>
-            </ul>
-            <ul>
-                <li><button class="btn_pagina" onclick="mostrar('inativos')">Produtos Inativos</button></li>
-            </ul>
-            <ul>
-                <li><button class="btn_pagina" onclick="mostrar('cadastro')">Cadastro de Produtos</button></li>
-            </ul>
-            <ul>
-                <li><button class="btn_pagina" onclick="mostrar('categorias')">Categorias</button></li>
-            </ul>
-        
-            <ul>
-                <li><button class="btn_pagina" onclick="mostrar('subcategorias')">Sub Categorias</button></li>
-            </ul>
-        
-            <ul>
-                <li><button class="btn_pagina" onclick="mostrar('selecionarcarrossel')">Carrossel</button></li>
-            </ul>
-        </nav>
+      <nav class="menu_produtos">
+        <ul>
+          <li>
+            <button class="btn_pagina" onclick="mostrar('ativos')">
+              Produtos Ativos
+            </button>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <button class="btn_pagina" onclick="mostrar('inativos')">
+              Produtos Inativos
+            </button>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <button class="btn_pagina" onclick="mostrar('cadastro')">
+              Cadastro de Produtos
+            </button>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <button class="btn_pagina" onclick="mostrar('categorias')">
+              Categorias
+            </button>
+          </li>
+        </ul>
 
-        <div class="acoes">
-            <a class="btn_link" href="../../loginteste/painel_admin.php">PAINEL DO ADMINISTRADOR</a>
-            <a class="btn_relatorio" href="relatorio.php" download>
-                Baixar Relatório</a>
-        </div>
+        <ul>
+          <li>
+            <button class="btn_pagina" onclick="mostrar('subcategorias')">
+              Sub Categorias
+            </button>
+          </li>
+        </ul>
+
+        <ul>
+          <li>
+            <button class="btn_pagina" onclick="mostrar('selecionarcarrossel')">
+              Carrossel
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="acoes">
+        <a class="btn_link" href="../../login/painel_admin.php"
+          >PAINEL DO ADMINISTRADOR</a
+        >
+        <a class="btn_relatorio" href="relatorio.php" download>
+          Baixar Relatório</a
+        >
+      </div>
     </header>
-    
-    <main class="conteudo">        
-        <div id="ativos" style="display:none;">
-            <!-- Tabela de produtos ativos vai aqui -->
-        </div>
-        
-        <div id="inativos" style="display:none;">
-            <!-- Tabela de produtos inativos vai aqui -->
-        </div>
-        
-        <div id="cadastro" style="display:none;">
-        
-            <h1>Cadastro de Produtos</h1>
-        
-            <form>
-        
-                <label for="nomeproduto">Nome:</label>
-                <input type="text" id="nomeproduto" name="nomeproduto" placeholder="Nome do produto">
-                <br>
-        
-                <label for="categoria">Categorias</label>
-                <select id="categoria" name="categoria">
-        
-                </select>
-        
-                <label for="categoria-adicionar">Adicionar</label>
-                <input type="text" id="categoria-adicionar" name="categoria-adicionar" placeholder="Nova categoria">
-                <button type="button" onclick="adicionarcategoria()">Adicionar nova categoria</button>
-                <br>
-        
-        
-                <label for="subcategoria">Sub Categorias</label>
-                <select id="subcategoria" name="subcategoria">
-        
-                </select>
-        
-                <label for="subcategoria-adicionar">Adicionar</label>
-                <input type="text" id="subcategoria-adicionar" name="novasubcategoria" placeholder="Nova Sub Categoria">
-                <button type="button" onclick="adicionarsubcategoria()">Adicionar nova subcategoria</button>
-                <br>
-        
-        
-        
-        
-        
-        
-                <label for="preco">Preço:</label>
-                <input type="number" id="preco" name="preco" placeholder="Preço do produto" min="0" step="0.01">
-                <br>
-        
-                <label for="descricao">Descrição:</label>
-                <textarea id="descricao" name="descricao" rows="4" cols="50"
-                    placeholder="Escreva a descrição aqui..."></textarea><br><br>
-        
-                <label for="estoque">Imagem:</label>
-                <input type="text" id="imagem" name="imagem" placeholder="link da imagem">
-                <br>
-        
-        
-                <label for="estoque">Estoque:</label>
-                <input type="number" id="estoque" name="estoque" placeholder="Quantidade em estoque" min="0">
-                <br>
-        
-                <button type="button" class="btn_adc" onclick="addproduto()">Adicionar novo produto</button>
-                <button type="reset" class="btn_adc">Limpar</button>
-            </form>
-        
-        </div>
-        
-        <div id="prodlocalizado">
-        
-        </div>
-        
-        
-        
-        <div id="categorias" style="display:none;">
-        
-        </div>
-        
-        <div id="subcategorias" style="display:none;">
-        
-        </div>
-        
-        <div id="selecionarcarrossel" style="display:none;">
-        
-        </div>
-    </main>
-</body>
 
+    <main class="conteudo">
+      <div id="ativos" style="display: none">
+        <!-- Tabela de produtos ativos vai aqui -->
+      </div>
+
+      <div id="inativos" style="display: none">
+        <!-- Tabela de produtos inativos vai aqui -->
+      </div>
+
+      <div id="cadastro" style="display: none">
+        <h1>Cadastro de Produtos</h1>
+
+        <form>
+          <label for="nomeproduto">Nome:</label>
+          <input
+            type="text"
+            id="nomeproduto"
+            name="nomeproduto"
+            placeholder="Nome do produto"
+          />
+          <br />
+
+          <label for="categoria">Categorias</label>
+          <select id="categoria" name="categoria"></select>
+
+          <label for="categoria-adicionar">Adicionar</label>
+          <input
+            type="text"
+            id="categoria-adicionar"
+            name="categoria-adicionar"
+            placeholder="Nova categoria"
+          />
+          <button type="button" onclick="adicionarcategoria()">
+            Adicionar nova categoria
+          </button>
+          <br />
+
+          <label for="subcategoria">Sub Categorias</label>
+          <select id="subcategoria" name="subcategoria"></select>
+
+          <label for="subcategoria-adicionar">Adicionar</label>
+          <input
+            type="text"
+            id="subcategoria-adicionar"
+            name="novasubcategoria"
+            placeholder="Nova Sub Categoria"
+          />
+          <button type="button" onclick="adicionarsubcategoria()">
+            Adicionar nova subcategoria
+          </button>
+          <br />
+
+          <label for="preco">Preço:</label>
+          <input
+            type="number"
+            id="preco"
+            name="preco"
+            placeholder="Preço do produto"
+            min="0"
+            step="0.01"
+          />
+          <br />
+
+          <label for="descricao">Descrição:</label>
+          <textarea
+            id="descricao"
+            name="descricao"
+            rows="4"
+            cols="50"
+            placeholder="Escreva a descrição aqui..."
+          ></textarea
+          ><br /><br />
+
+          <label for="estoque">Imagem:</label>
+          <input
+            type="text"
+            id="imagem"
+            name="imagem"
+            placeholder="link da imagem"
+          />
+          <br />
+
+          <label for="estoque">Estoque:</label>
+          <input
+            type="number"
+            id="estoque"
+            name="estoque"
+            placeholder="Quantidade em estoque"
+            min="0"
+          />
+          <br />
+
+          <button type="button" class="btn_adc" onclick="addproduto()">
+            Adicionar novo produto
+          </button>
+          <button type="reset" class="btn_adc">Limpar</button>
+        </form>
+      </div>
+
+      <div id="prodlocalizado"></div>
+
+      <div id="categorias" style="display: none"></div>
+
+      <div id="subcategorias" style="display: none"></div>
+
+      <div id="selecionarcarrossel" style="display: none"></div>
+    </main>
+  </body>
 </html>

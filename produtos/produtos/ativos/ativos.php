@@ -34,7 +34,7 @@ if (empty($dados)) {
         echo "<tr>";
         echo "<td>" . $produtos['id'] . "</td>";
         echo "<td>" . $produtos['nome'] . "</td>";
-        echo "<td>" . $produtos['preco'] . "</td>";
+        echo "<td> R$" . $produtos['preco'] . "</td>";
         echo "<td>" . $produtos['descricao'] . "</td>";
         echo "<td>" . $produtos['id_categoria'] . "</td>";
         echo "<td>" . $produtos['id_sub_categoria'] . "</td>";

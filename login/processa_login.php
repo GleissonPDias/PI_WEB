@@ -38,7 +38,7 @@ try {
         $_SESSION['admin_logado'] = true;
         $_SESSION['admin_nome'] = $nome;
         $_SESSION['admin_id'] = $usuario['ID']; // Assumindo que existe um campo ID
-        header('Location: admin.php'); 
+        header('Location: painel_admin.php'); 
         exit;
     } else {
         $_SESSION['mensagem_erro'] = "Credenciais inválidas ou usuário inativo";
