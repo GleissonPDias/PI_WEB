@@ -43,7 +43,7 @@ if(isset($_SESSION['mensagem_erro'])) {
         </div>
         
     </form>
-        <p><a href="redefinir_senha.php">Esqueci minha senha</a></p>
+        <p><a href="senha/redefinir_senha.php">Esqueci minha senha</a></p>
 </div>
 
         </div>
