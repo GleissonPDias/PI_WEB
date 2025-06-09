@@ -8,7 +8,7 @@ if (!isset($_SESSION['admin_logado'])) {
     header("Location:login.php");
     exit();
 }
-$administradores = []; // Inicializa como array vazio
+$administradores = [];
 
 try {
     $stmt = $pdo->prepare("SELECT * FROM ADMINISTRADOR");
@@ -123,7 +123,6 @@ function confirmDeletion() {
 <body>
     <div class="tudo">
 <h2>Administradores Cadastrados</h2>
-<!-- Botão para adicionar novo administrador -->
 <a href="cadastrar_administrador.php" class="add-btn">Adicionar Novo Administrador</a>
 </div>
 

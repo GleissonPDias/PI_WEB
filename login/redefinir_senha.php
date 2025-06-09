@@ -4,11 +4,6 @@ session_start();
 if (isset($_POST['email'])) {
     $email = $_POST['email'];
 
-    // Aqui você faria uma verificação no banco de dados para ver se o e-mail existe.
-    // Suponhamos que ele exista...
-
-    // Você pode gerar um token único, salvar no banco de dados e enviar o link por e-mail.
-    // Aqui, só vamos simular com uma mensagem de sucesso.
     $_SESSION['mensagem'] = "Se o e-mail estiver cadastrado, um link de redefinição será enviado.";
     header("Location: redefinir_senha.php");
     exit();

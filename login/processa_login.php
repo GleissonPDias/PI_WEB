@@ -7,20 +7,17 @@ try {
         throw new Exception("Preencha todos os campos");
     }
 
-    // Inclui o arquivo de conexão
     require_once('../conexao_db.php');
     
     // Limpa e armazena os dados
     $nome = trim($_POST['nome']);
     $senha = trim($_POST['senha']);
     
-    // Verifica se a tabela ADMINISTRADOR existe
     $stmt = $pdo->query("SELECT name FROM sqlite_master WHERE type='table' AND name='ADMINISTRADOR'");
     if ($stmt->fetch() === false) {
         throw new PDOException("Tabela ADMINISTRADOR não encontrada no banco de dados");
     }
     
-    // Prepara e executa a consulta
     $sql = "SELECT * FROM ADMINISTRADOR WHERE ADM_NOME = :nome AND ADM_SENHA = :senha AND ADM_ATIVO = 1"; 
     $query = $pdo->prepare($sql);
     
@@ -37,7 +34,7 @@ try {
     if ($usuario) {
         $_SESSION['admin_logado'] = true;
         $_SESSION['admin_nome'] = $nome;
-        $_SESSION['admin_id'] = $usuario['ID']; // Assumindo que existe um campo ID
+        $_SESSION['admin_id'] = $usuario['ID'];
         header('Location: painel_admin.php'); 
         exit;
     } else {

@@ -7,7 +7,7 @@ if (!isset($_SESSION['admin_logado'])) {
     exit();
 }
 
-$id = $_GET['id'] ?? null; //verifica se o valor à sua esquerda é null ou não definido. Se for, o operador retorna o valor à sua direita. Se não for, retorna o valor à esquerda
+$id = $_GET['id'] ?? null;
 
 if (!$id) {
     header('Location: listar_administrador.php');
